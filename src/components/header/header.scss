@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  height: 60px;
+  padding: 0 48px;
+  align-items: center;
+}
+
+.create-event-btn {
+  padding: 0 16px;
+  background-color: #fff;
+  border: 3px solid #cccccc66;
+  font-weight: 700;
+  color: #2b292dcc;
+  box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
+    0px 1px 0px 0px #ffffff1a inset;
+
+  &__icon {
+    color: #3b3b8f80;
+    margin-right: 12px;
+  }
+}
+
+.navigation {
+  &__today-btn {
+    margin-left: 32px;
+    padding: 0 16px;
+    border: 3px solid #cccccc66;
+    box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
+      0px 1px 0px 0px #ffffff1a inset;
+    background-color: #fff;
+    color: #2b292dcc;
+    font-weight: 700;
+  }
+
+  &__nav-icon {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  &__displayed-month {
+    margin-left: 10px;
+  }
+
+  i {
+    color: #2b292dcc;
+  }
+}
