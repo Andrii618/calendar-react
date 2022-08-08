@@ -1,21 +1,23 @@
 .header {
   display: flex;
-  height: 60px;
-  padding: 0 48px;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 48px;
+  height: 70px;
+  border-bottom: 1px solid #cccccc66;
 }
 
 .create-event-btn {
   padding: 0 16px;
-  background-color: #fff;
   border: 3px solid #cccccc66;
+  background-color: #fff;
   font-weight: 700;
   color: #2b292dcc;
   box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
     0px 1px 0px 0px #ffffff1a inset;
 
   &__icon {
-    color: #3b3b8f80;
+    color: #372be299;
     margin-right: 12px;
   }
 }
@@ -33,12 +35,14 @@
   }
 
   &__nav-icon {
-    font-size: 16px;
     margin-left: 20px;
+    font-size: 16px;
   }
 
   &__displayed-month {
     margin-left: 10px;
+    font-weight: 700;
+    color: #2b292dcc;
   }
 
   i {

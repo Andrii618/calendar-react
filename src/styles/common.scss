@@ -2,8 +2,8 @@
   height: 40px;
   border-radius: 8px;
   outline: none;
-  cursor: pointer;
   transition: transform 0.2s;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.1);
