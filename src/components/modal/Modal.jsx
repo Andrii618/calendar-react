@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
+import events from '../../gateway/events';
+import createEvent from '../../gateway/createEvent';
+import { getDivisionResult, formatTime } from '../../utils/dateUtils';
+
 import './modal.scss';
 
 const Modal = ({ hideCreateForm }) => {
@@ -15,17 +19,25 @@ const Modal = ({ hideCreateForm }) => {
   const [isFormFull, setIsFormFull] = useState(false);
 
   useEffect(() => {
+    const { startTime, endTime } = eventFormData;
+
+    if (getDivisionResult(startTime, endTime)) {
+      setEventFormData({ ...eventFormData, startTime: '', endTime: '' });
+      alert('you put wrong duration or same');
+    }
+
     setIsFormFull(!Object.values(eventFormData).some(value => value === ''));
   }, [eventFormData]);
 
   const handleSubmitForm = e => {
     e.preventDefault();
-    alert(JSON.stringify(eventFormData));
     hideCreateForm();
   };
 
   const handleFormChange = ({ target }) => {
-    setEventFormData({ ...eventFormData, [target.name]: target.value });
+    const value = target.type === 'time' ? formatTime(target.value) : target.value;
+
+    setEventFormData({ ...eventFormData, [target.name]: value });
   };
 
   const submitButtonStyles = classNames('event-form__submit-btn', {

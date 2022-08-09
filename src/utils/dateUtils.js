@@ -17,6 +17,16 @@ export const generateWeekRange = startDate =>
     return new Date(base.setDate(base.getDate() + count));
   });
 
+export const getDivisionResult = (firstTime, secondTime) => {
+  const [firstHours, firstMinutes] = firstTime.split(':');
+  const [secondHours, secondMinutes] = secondTime.split(':');
+
+  return (
+    new Date(null, null, null, firstHours, firstMinutes) >
+    new Date(null, null, null, secondHours, secondMinutes)
+  );
+};
+
 export const getDateTime = (date, time) => {
   const [hours, minutes] = time.split(':');
   const withHours = new Date(new Date(date).setHours(Number(hours)));
@@ -38,9 +48,17 @@ export const getMonth = weekDates => {
 
 export const isCurrentDay = day => moment(new Date()).format('l') === moment(day).format('l');
 
-// export const formatMins = mins => (mins < 10 ? `0${mins}` : mins);
-
 export const formatMins = mins => String(mins).padStart(2, '0');
+
+export const formatTime = time => {
+  const [hours, minutes] = time.split(':');
+
+  const minsRound = Math.round(minutes / 15);
+
+  const formattedMins = minsRound === 0 || minsRound === 4 ? '00' : formatMins(minsRound * 15);
+
+  return `${hours}:${formattedMins}`;
+};
 
 export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
