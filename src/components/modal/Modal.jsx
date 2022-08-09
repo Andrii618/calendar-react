@@ -90,7 +90,7 @@ const Modal = ({ hideCreateForm }) => {
               name="description"
               placeholder="Type description..."
               className="event-form__field event-form__desc"
-              maxLength="190"
+              maxLength="140"
               value={eventFormData.description}
               onChange={handleFormChange}
             ></textarea>
