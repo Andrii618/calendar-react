@@ -31,8 +31,10 @@ export const getDateTime = (date, time) => {
 
 export const getMonth = (startDate, weekDates) =>
   weekDates[0].getMonth() === weekDates[weekDates.length - 1].getMonth()
-    ? moment(startDate).format('MMM')
-    : `${moment(startDate).format('MMM')} - ${moment(startDate).add(1, 'months').format('MMM')}`;
+    ? moment(startDate).format('MMM YYYY')
+    : `${moment(startDate).format('MMM')} - ${moment(startDate)
+        .add(1, 'months')
+        .format('MMM YYYY')}`;
 
 export const isCurrentDay = day => moment(new Date()).format('l') === moment(day).format('l');
 
