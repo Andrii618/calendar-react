@@ -5,9 +5,11 @@ import Calendar from './components/calendar/Calendar';
 import { getWeekStartDate, generateWeekRange } from './utils/dateUtils';
 
 import './styles/common.scss';
+import Modal from './components/modal/Modal';
 
 const App = () => {
   const [weekStartDate, setWeekStartDate] = useState(new Date());
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
@@ -23,15 +25,21 @@ const App = () => {
     setWeekStartDate(new Date());
   };
 
+  const toggleModalVisibility = () => {
+    setIsModalVisible(!isModalVisible);
+  };
+
   return (
     <>
       <Header
         goNextWeek={handleNextWeekClick}
         goPrevWeek={handlePrevWeekClick}
         goTodayWeek={handleTodayClick}
+        createEvent={toggleModalVisibility}
         weekDates={weekDates}
       />
       <Calendar weekDates={weekDates} />
+      {isModalVisible && <Modal hideCreateForm={toggleModalVisibility}></Modal>}
     </>
   );
 };
