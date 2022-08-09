@@ -29,12 +29,16 @@ export const getDateTime = (date, time) => {
   return withMinutes;
 };
 
-export const getMonth = (startDate, weekDates) =>
-  weekDates[0].getMonth() === weekDates[weekDates.length - 1].getMonth()
-    ? moment(startDate).format('MMM YYYY')
-    : `${moment(startDate).format('MMM')} - ${moment(startDate)
-        .add(1, 'months')
-        .format('MMM YYYY')}`;
+export const getMonth = weekDates => {
+  const startDay = weekDates[0];
+  const endDay = weekDates[weekDates.length - 1];
+
+  if (startDay.getMonth() === endDay.getMonth()) {
+    return moment(startDay).format('MMM YYYY');
+  }
+
+  return `${moment(startDay).format('MMM')} - ${moment(endDay).format('MMM YYYY')}`;
+};
 
 export const isCurrentDay = day => moment(new Date()).format('l') === moment(day).format('l');
 

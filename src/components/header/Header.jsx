@@ -4,7 +4,7 @@ import { getMonth } from '../../utils/dateUtils';
 
 import './header.scss';
 
-const Header = ({ goNextWeek, goPrevWeek, goTodayWeek, weekStartDate, weekDates }) => (
+const Header = ({ goNextWeek, goPrevWeek, goTodayWeek, weekDates }) => (
   <header className="header">
     <button className="button create-event-btn">
       <i className="fas fa-plus create-event-btn__icon"></i>
@@ -20,7 +20,7 @@ const Header = ({ goNextWeek, goPrevWeek, goTodayWeek, weekStartDate, weekDates 
       <button className="icon-button navigation__nav-icon" onClick={goNextWeek}>
         <i className="fas fa-chevron-right"></i>
       </button>
-      <span className="navigation__displayed-month">{getMonth(weekStartDate, weekDates)}</span>
+      <span className="navigation__displayed-month">{getMonth(weekDates)}</span>
     </div>
   </header>
 );
