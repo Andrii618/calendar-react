@@ -79,7 +79,6 @@
   }
 
   &__submit-btn {
-    width: 150px;
     margin: 8px;
     margin-left: auto;
     border: none;
@@ -88,13 +87,23 @@
     border: none;
     padding: 8px 16px;
     border-radius: 8px;
-    cursor: pointer;
     transition: transform 0.2s;
     box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
       0px 1px 0px 0px #ffffff1a inset;
+    font-weight: 700;
 
-    &:hover {
-      transform: scale(1.1);
+    &_disabled {
+      background-color: #fff;
+      color: #2b292dcc;
+      cursor: not-allowed;
+    }
+
+    &_working {
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

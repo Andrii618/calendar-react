@@ -40,7 +40,7 @@ export const isCurrentDay = day => moment(new Date()).format('l') === moment(day
 
 // export const formatMins = mins => (mins < 10 ? `0${mins}` : mins);
 
-export const formatMins = mins => mins.padStart(2, '0');
+export const formatMins = mins => String(mins).padStart(2, '0');
 
 export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 

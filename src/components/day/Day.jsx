@@ -23,7 +23,7 @@ const Day = ({ dataDay, dayEvents, currentDay }) => {
     return () => {
       clearInterval(timerId);
     };
-  }, [getMinsPassed()]);
+  }, []);
 
   return (
     <div className={'calendar__day'} data-day={dataDay}>
