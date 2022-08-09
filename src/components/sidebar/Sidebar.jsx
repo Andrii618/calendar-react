@@ -9,7 +9,7 @@ const Sidebar = () => {
     <div className="sidebar__time-scale">
       {hours.map(hour => (
         <div key={hour} className="time-slot">
-          <span className="time-slot__time">{`${hour}:00`}</span>
+          <span className="time-slot__time">{`${String(hour).padStart(2, '0')}:00`}</span>
         </div>
       ))}
     </div>
