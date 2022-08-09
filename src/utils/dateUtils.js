@@ -16,12 +16,6 @@ export const generateWeekRange = startDate =>
 
     return new Date(base.setDate(base.getDate() + count));
   });
-// .fill()
-// .map((_, count) => {
-//   const base = new Date(startDate);
-
-//   return new Date(base.setDate(base.getDate() + count));
-// });
 
 export const getDateTime = (date, time) => {
   const [hours, minutes] = time.split(':');

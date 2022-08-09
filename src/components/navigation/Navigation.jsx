@@ -11,6 +11,7 @@ const Navigation = ({ weekDates }) => (
       const dayNumberStyles = classNames('day-label__day-number', {
         'day-label__day-number_current': isCurrentDay(dayDate),
       });
+
       const dayNameStyles = classNames('day-label__day-name', {
         'day-label__day-name_current': isCurrentDay(dayDate),
       });
