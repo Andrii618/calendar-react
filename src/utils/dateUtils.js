@@ -10,16 +10,18 @@ export const getWeekStartDate = date => {
   return new Date(monday.getFullYear(), monday.getMonth(), monday.getDate());
 };
 
-export const generateWeekRange = startDate => {
-  const result = [];
-
-  for (let i = 0; i < 7; i += 1) {
+export const generateWeekRange = startDate =>
+  Array.from({ length: 7 }, (_, count) => {
     const base = new Date(startDate);
-    result.push(new Date(base.setDate(base.getDate() + i)));
-  }
 
-  return result;
-};
+    return new Date(base.setDate(base.getDate() + count));
+  });
+// .fill()
+// .map((_, count) => {
+//   const base = new Date(startDate);
+
+//   return new Date(base.setDate(base.getDate() + count));
+// });
 
 export const getDateTime = (date, time) => {
   const [hours, minutes] = time.split(':');
@@ -42,7 +44,9 @@ export const getMonth = weekDates => {
 
 export const isCurrentDay = day => moment(new Date()).format('l') === moment(day).format('l');
 
-export const formatMins = mins => (mins < 10 ? `0${mins}` : mins);
+// export const formatMins = mins => (mins < 10 ? `0${mins}` : mins);
+
+export const formatMins = mins => mins.padStart(2, '0');
 
 export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 

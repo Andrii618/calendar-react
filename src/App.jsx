@@ -29,7 +29,6 @@ const App = () => {
         goNextWeek={handleNextWeekClick}
         goPrevWeek={handlePrevWeekClick}
         goTodayWeek={handleTodayClick}
-        weekStartDate={weekStartDate}
         weekDates={weekDates}
       />
       <Calendar weekDates={weekDates} />
