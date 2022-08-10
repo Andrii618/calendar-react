@@ -7,7 +7,7 @@ import { getDivisionResult, formatTime } from '../../utils/dateUtils';
 
 import './modal.scss';
 
-const Modal = ({ hideCreateForm, onUploadEvent }) => {
+const Modal = ({ hideCreateForm, onUploadEvent, isCreateBtn, time }) => {
   const [eventFormData, setEventFormData] = useState({
     title: '',
     description: '',

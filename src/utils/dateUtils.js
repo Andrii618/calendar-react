@@ -22,7 +22,7 @@ export const getDivisionResult = (firstTime, secondTime) => {
   const [secondHours, secondMinutes] = secondTime.split(':');
 
   return (
-    new Date(null, null, null, firstHours, firstMinutes) >
+    new Date(null, null, null, firstHours, firstMinutes) >=
     new Date(null, null, null, secondHours, secondMinutes)
   );
 };
@@ -61,18 +61,3 @@ export const formatTime = time => {
 };
 
 export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-// export const months = [
-//   'January',
-//   'February',
-//   'March',
-//   'April',
-//   'May',
-//   'June',
-//   'July',
-//   'August',
-//   'September',
-//   'October',
-//   'November',
-//   'December',
-// ];

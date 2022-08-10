@@ -13,7 +13,7 @@ const Hour = ({ dataHour, hourEvents, onRemoveEvent }) => (
       return (
         <Event
           key={id}
-          //calculating event height = duration of event in minutes
+          //  calculating event height = duration of event in minutes
           id={id}
           height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
           marginTop={dateFrom.getMinutes()}
