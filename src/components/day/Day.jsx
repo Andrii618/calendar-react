@@ -10,7 +10,7 @@ const getMinsPassed = () => {
   return base.getHours() * 60 + base.getMinutes();
 };
 
-const Day = ({ dataDay, dayEvents, currentDay }) => {
+const Day = ({ dataDay, dayEvents, currentDay, onRemoveEvent }) => {
   const [passedMins, setPassedMins] = useState(getMinsPassed());
 
   const hours = Array.from({ length: 24 }, (_, index) => index);
@@ -33,7 +33,14 @@ const Day = ({ dataDay, dayEvents, currentDay }) => {
 
         const hourEvents = dayEvents.filter(event => event.dateFrom.getHours() === hour);
 
-        return <Hour key={dataDay + hour} dataHour={hour} hourEvents={hourEvents} />;
+        return (
+          <Hour
+            key={dataDay + hour}
+            dataHour={hour}
+            hourEvents={hourEvents}
+            onRemoveEvent={onRemoveEvent}
+          />
+        );
       })}
     </div>
   );

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-import events from '../../gateway/events';
-import createEvent from '../../gateway/createEvent';
+import createEventData from '../../gateway/createEventData';
+import { uploadEvent } from '../../gateway/events';
 import { getDivisionResult, formatTime } from '../../utils/dateUtils';
 
 import './modal.scss';
 
-const Modal = ({ hideCreateForm }) => {
+const Modal = ({ hideCreateForm, onUploadEvent }) => {
   const [eventFormData, setEventFormData] = useState({
     title: '',
     description: '',
@@ -31,6 +31,11 @@ const Modal = ({ hideCreateForm }) => {
 
   const handleSubmitForm = e => {
     e.preventDefault();
+
+    uploadEvent(createEventData(eventFormData)).then(() => {
+      onUploadEvent();
+    });
+
     hideCreateForm();
   };
 
@@ -90,7 +95,7 @@ const Modal = ({ hideCreateForm }) => {
               name="description"
               placeholder="Type description..."
               className="event-form__field event-form__desc"
-              maxLength="138"
+              maxLength="161"
               value={eventFormData.description}
               onChange={handleFormChange}
               style={{ height: eventFormData.description.length * 0.8 + 30 }}

@@ -1,6 +1,6 @@
 import { getDateTime } from '../utils/dateUtils';
 
-const createEvent = eventFormData => {
+const createEventData = eventFormData => {
   const dateFrom = getDateTime(eventFormData.date, eventFormData.startTime);
   const dateTo = getDateTime(eventFormData.date, eventFormData.endTime);
 
@@ -12,4 +12,4 @@ const createEvent = eventFormData => {
   };
 };
 
-export default createEvent;
+export default createEventData;
