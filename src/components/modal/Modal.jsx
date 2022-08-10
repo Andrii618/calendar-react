@@ -58,7 +58,7 @@ const Modal = ({ hideCreateForm }) => {
               name="title"
               placeholder="Write title..."
               className="event-form__field"
-              maxLength="38"
+              maxLength="23"
               value={eventFormData.title}
               onChange={handleFormChange}
             />
@@ -90,9 +90,10 @@ const Modal = ({ hideCreateForm }) => {
               name="description"
               placeholder="Type description..."
               className="event-form__field event-form__desc"
-              maxLength="140"
+              maxLength="138"
               value={eventFormData.description}
               onChange={handleFormChange}
+              style={{ height: eventFormData.description.length * 0.8 + 30 }}
             ></textarea>
             <button type="submit" className={submitButtonStyles} disabled={!isFormFull}>
               {isFormFull ? 'Create event' : 'Fill all fields, please'}
