@@ -25,9 +25,9 @@ const App = () => {
 
   return (
     <>
-      <Page events={events} toggleModal={toggleModalVisibility} updateEvents={handleEventsFetch} />
+      <Page toggleModal={toggleModalVisibility} updateEvents={handleEventsFetch} events={events} />
       {isModalVisible && (
-        <Modal hideCreateForm={toggleModalVisibility} onUploadEvent={handleEventsFetch}></Modal>
+        <Modal hideModal={toggleModalVisibility} onUploadEvent={handleEventsFetch}></Modal>
       )}
     </>
   );

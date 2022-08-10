@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import classNames from 'classnames';
 
-import createEventData from '../../gateway/createEventData';
 import { uploadEvent } from '../../gateway/events';
-import { getDivisionResult, formatTime } from '../../utils/dateUtils';
+import { formatTime } from '../../utils/dateUtils';
+import createEventData from '../../gateway/createEventData';
+
+import Form from '../form/Form';
 
 import './modal.scss';
 
-const Modal = ({ hideCreateForm, onUploadEvent, isCreateBtn, time }) => {
-  const [eventFormData, setEventFormData] = useState({
+const Modal = ({ hideModal, onUploadEvent }) => {
+  const [eventData, setEventData] = useState({
     title: '',
     description: '',
     startTime: '',
@@ -16,94 +17,41 @@ const Modal = ({ hideCreateForm, onUploadEvent, isCreateBtn, time }) => {
     date: '',
   });
 
-  const [isFormFull, setIsFormFull] = useState(false);
+  const [isEventFilled, setIsFormFull] = useState(false);
 
   useEffect(() => {
-    const { startTime, endTime } = eventFormData;
+    setIsFormFull(!Object.values(eventData).some(value => value === ''));
+  }, [eventData]);
 
-    if (getDivisionResult(startTime, endTime)) {
-      setEventFormData({ ...eventFormData, startTime: '', endTime: '' });
-      alert('you put wrong duration or same');
-    }
-
-    setIsFormFull(!Object.values(eventFormData).some(value => value === ''));
-  }, [eventFormData]);
-
-  const handleSubmitForm = e => {
+  const handleSubmitData = e => {
     e.preventDefault();
 
-    uploadEvent(createEventData(eventFormData)).then(() => {
+    uploadEvent(createEventData(eventData)).then(() => {
       onUploadEvent();
     });
 
-    hideCreateForm();
+    hideModal();
   };
 
-  const handleFormChange = ({ target }) => {
+  const handleDataChanges = ({ target }) => {
     const value = target.type === 'time' ? formatTime(target.value) : target.value;
 
-    setEventFormData({ ...eventFormData, [target.name]: value });
+    setEventData({ ...eventData, [target.name]: value });
   };
-
-  const submitButtonStyles = classNames('event-form__submit-btn', {
-    'event-form__submit-btn_disabled': isFormFull === false,
-    'event-form__submit-btn_working': isFormFull === true,
-  });
 
   return (
     <div className="modal overlay">
       <div className="modal__content">
         <div className="create-event">
-          <button className="create-event__close-btn" onClick={hideCreateForm}>
+          <button className="create-event__close-btn" onClick={hideModal}>
             +
           </button>
-          <form className="event-form" onSubmit={handleSubmitForm}>
-            <input
-              type="text"
-              name="title"
-              placeholder="Write title..."
-              className="event-form__field"
-              maxLength="23"
-              value={eventFormData.title}
-              onChange={handleFormChange}
-            />
-            <div className="event-form__time">
-              <input
-                type="date"
-                name="date"
-                className="event-form__field"
-                value={eventFormData.date}
-                onChange={handleFormChange}
-              />
-              <input
-                type="time"
-                name="startTime"
-                className="event-form__field"
-                value={eventFormData.startTime}
-                onChange={handleFormChange}
-              />
-              <span>-</span>
-              <input
-                type="time"
-                name="endTime"
-                className="event-form__field"
-                value={eventFormData.endTime}
-                onChange={handleFormChange}
-              />
-            </div>
-            <textarea
-              name="description"
-              placeholder="Type description..."
-              className="event-form__field event-form__desc"
-              maxLength="161"
-              value={eventFormData.description}
-              onChange={handleFormChange}
-              style={{ height: eventFormData.description.length * 0.8 + 30 }}
-            ></textarea>
-            <button type="submit" className={submitButtonStyles} disabled={!isFormFull}>
-              {isFormFull ? 'Create event' : 'Fill all fields, please'}
-            </button>
-          </form>
+          <Form
+            eventData={eventData}
+            isFilled={isEventFilled}
+            onDataChange={handleDataChanges}
+            handleSubmit={handleSubmitData}
+          />
         </div>
       </div>
     </div>

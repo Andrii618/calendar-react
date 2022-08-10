@@ -6,12 +6,12 @@
   &__header {
     display: flex;
     height: 100px;
-    padding-left: 48px;
+    padding: 0 17px 0 65px;
   }
 
   &__day {
     position: relative;
     flex: 1;
-    border-left: 1px solid #eee;
+    border-left: 1px solid #cccccc66;
   }
 }

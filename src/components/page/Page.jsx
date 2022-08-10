@@ -31,7 +31,7 @@ const Page = ({ toggleModal, events, updateEvents }) => {
         onClickCreate={toggleModal}
         weekDates={weekDates}
       />
-      <Calendar weekDates={weekDates} events={events} onRemoveEvent={updateEvents} />
+      <Calendar onRemoveEvent={updateEvents} weekDates={weekDates} events={events} />
     </>
   );
 };

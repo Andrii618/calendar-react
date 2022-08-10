@@ -4,12 +4,6 @@
   flex-direction: column;
   height: calc(100vh - 100px);
 
-  &__header {
-    display: flex;
-    height: 100px;
-    padding: 0 17px 0 65px;
-  }
-
   &__body {
     display: flex;
     overflow: auto;
@@ -30,12 +24,6 @@
     display: flex;
     flex: 1;
     border-top: 1px solid #cccccc66;
-  }
-
-  &__day {
-    position: relative;
-    flex: 1;
-    border-left: 1px solid #cccccc66;
   }
 
   &__time-slot {

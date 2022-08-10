@@ -6,7 +6,7 @@ import Sidebar from '../sidebar/Sidebar';
 
 import './calendar.scss';
 
-const Calendar = ({ weekDates, events, onRemoveEvent }) => (
+const Calendar = ({ onRemoveEvent, weekDates, events }) => (
   <section className="calendar">
     <Navigation weekDates={weekDates} />
     <div className="calendar__body">
