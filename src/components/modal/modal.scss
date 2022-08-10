@@ -5,10 +5,10 @@
   align-items: center;
 
   &__content {
-    background: #fff;
     padding: 16px;
     border: none;
     border-radius: 8px;
+    background: #fff;
     box-shadow: -1px 15px 13px 12px rgb(0 0 0 / 5%), 0px 1px 16px 0px rgb(0 0 0 / 10%),
       0px 1px 0px 0px rgb(255 255 255 / 10%) inset;
     animation: move 0.4s forwards;
@@ -18,11 +18,11 @@
 .overlay {
   position: fixed;
   top: 0;
+  z-index: 10;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: #cccccc45;
-  z-index: 10;
 }
 
 .create-event {
@@ -30,16 +30,16 @@
   flex-direction: column;
 
   &__close-btn {
-    margin-left: auto;
     transform: rotate(45deg) scale(2);
-    outline: none;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
+    margin-left: auto;
     width: 24px;
     height: 24px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
     background: transparent;
     color: #2b292dcc;
     font-size: 14px;
+    cursor: pointer;
   }
 }
