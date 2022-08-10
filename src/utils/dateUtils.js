@@ -46,16 +46,22 @@ export const getMonth = weekDates => {
   return `${moment(startDay).format('MMM')} - ${moment(endDay).format('MMM YYYY')}`;
 };
 
+export const getMinsPassed = () => {
+  const base = new Date();
+
+  return base.getHours() * 60 + base.getMinutes();
+};
+
 export const isCurrentDay = day => moment(new Date()).format('l') === moment(day).format('l');
 
-export const formatMins = mins => String(mins).padStart(2, '0');
+export const formatTimeValue = mins => String(mins).padStart(2, '0');
 
 export const formatTime = time => {
   const [hours, minutes] = time.split(':');
 
   const minsRound = Math.round(minutes / 15);
 
-  const formattedMins = minsRound === 0 || minsRound === 4 ? '00' : formatMins(minsRound * 15);
+  const formattedMins = minsRound === 0 || minsRound === 4 ? '00' : formatTimeValue(minsRound * 15);
 
   return `${hours}:${formattedMins}`;
 };

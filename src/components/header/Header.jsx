@@ -4,14 +4,14 @@ import { getMonth } from '../../utils/dateUtils';
 
 import './header.scss';
 
-const Header = ({ goNextWeek, goPrevWeek, goTodayWeek, onClickCreate, weekDates }) => (
+const Header = ({ goNextWeek, goPrevWeek, goCurrentWeek, onClickCreate, weekDates }) => (
   <header className="header">
     <button className="button create-event-btn" onClick={onClickCreate}>
       <i className="fas fa-plus create-event-btn__icon"></i>
       Create
     </button>
     <div className="navigation">
-      <button className="navigation__today-btn button" onClick={goTodayWeek}>
+      <button className="navigation__today-btn button" onClick={goCurrentWeek}>
         Today
       </button>
       <button className="icon-button navigation__nav-icon" onClick={goPrevWeek}>

@@ -17,7 +17,7 @@ const Page = ({ toggleModal, events, updateEvents }) => {
     setWeekStartDate(new Date(weekStartDate.setDate(weekStartDate.getDate() - 7)));
   };
 
-  const handleTodayClick = () => {
+  const handleGoCurrentWeek = () => {
     setWeekStartDate(new Date());
   };
 
@@ -26,12 +26,17 @@ const Page = ({ toggleModal, events, updateEvents }) => {
       <Header
         goNextWeek={handleNextWeekClick}
         goPrevWeek={handlePrevWeekClick}
-        goTodayWeek={handleTodayClick}
+        goCurrentWeek={handleGoCurrentWeek}
         createEvent={updateEvents}
         onClickCreate={toggleModal}
         weekDates={weekDates}
       />
-      <Calendar onRemoveEvent={updateEvents} weekDates={weekDates} events={events} />
+      <Calendar
+        onUpdateEvents={updateEvents}
+        weekDates={weekDates}
+        events={events}
+        goNewDay={handleGoCurrentWeek}
+      />
     </>
   );
 };

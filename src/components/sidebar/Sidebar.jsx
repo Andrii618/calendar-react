@@ -1,19 +1,17 @@
 import React from 'react';
 
+import { formatTimeValue } from '../../utils/dateUtils';
+
 import './sidebar.scss';
 
-const Sidebar = () => {
-  const hours = Array.from({ length: 24 }, (_, index) => index + 1);
-
-  return (
-    <div className="sidebar__time-scale">
-      {hours.map(hour => (
-        <div key={hour} className="time-slot">
-          <span className="time-slot__time">{`${String(hour).padStart(2, '0')}:00`}</span>
-        </div>
-      ))}
-    </div>
-  );
-};
+const Sidebar = () => (
+  <div className="sidebar__time-scale">
+    {Array.from({ length: 24 }, (_, hour) => (
+      <div key={hour + 1} className="time-slot">
+        <span className="time-slot__time">{`${formatTimeValue(hour + 1)}:00`}</span>
+      </div>
+    ))}
+  </div>
+);
 
 export default Sidebar;

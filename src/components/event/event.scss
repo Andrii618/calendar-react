@@ -1,20 +1,20 @@
 .event {
   position: absolute;
+  z-index: 1;
+  padding: 8px;
+  border-radius: 8px;
   width: 80%;
   background-color: #372be299;
-  z-index: 1;
-  border-radius: 8px;
-  padding: 8px;
   color: #fff;
   font-weight: bold;
   cursor: no-drop;
 
   &__title {
+    margin-bottom: 8px;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-bottom: 8px;
   }
 
   &:hover {

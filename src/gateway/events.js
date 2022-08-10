@@ -3,6 +3,7 @@ const baseUrl = 'https://62f39203a84d8c968126b7ea.mockapi.io/api/v1/events';
 export const fetchEvents = () =>
   fetch(baseUrl).then(res => {
     if (!res.ok) {
+      alert("Internal Server Error. Can't display events");
       throw Error('Failed data fetch');
     }
 

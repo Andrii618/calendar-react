@@ -8,34 +8,4 @@
     display: flex;
     overflow: auto;
   }
-
-  &__week-container {
-    display: flex;
-    width: 100%;
-    height: fit-content;
-  }
-
-  &__time-scale {
-    height: 100%;
-    width: 48px;
-  }
-
-  &__week {
-    display: flex;
-    flex: 1;
-    border-top: 1px solid #cccccc66;
-  }
-
-  &__time-slot {
-    height: 60px;
-    position: relative;
-    border-bottom: 1px solid #cccccc66;
-  }
-}
-
-.red-line {
-  position: absolute;
-  z-index: 5;
-  width: 100%;
-  border-top: 2px solid #ff000066;
 }

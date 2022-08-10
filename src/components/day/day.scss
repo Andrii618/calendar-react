@@ -5,3 +5,10 @@
     border-left: 1px solid #cccccc66;
   }
 }
+
+.red-line {
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  border-top: 2px solid #ff000066;
+}

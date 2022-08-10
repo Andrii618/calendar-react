@@ -1,44 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
+import CurrentTimeLine from './CurrentTimeLine';
 import Hour from '../hour/Hour';
 
 import './day.scss';
 
-const getMinsPassed = () => {
-  const base = new Date();
-
-  return base.getHours() * 60 + base.getMinutes();
-};
-
-const Day = ({ dataDay, dayEvents, currentDay, onRemoveEvent }) => {
-  const [passedMins, setPassedMins] = useState(getMinsPassed());
-
+const Day = ({ dataDay, dayEvents, isCurrentDay, onUpdateEvents, goNewDay }) => {
   const hours = Array.from({ length: 24 }, (_, index) => index);
-
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setPassedMins(getMinsPassed());
-    }, 60000);
-
-    return () => {
-      clearInterval(timerId);
-    };
-  }, []);
 
   return (
     <div className={'calendar__day'} data-day={dataDay}>
-      {currentDay && <div className="red-line" style={{ top: passedMins }}></div>}
+      {isCurrentDay && <CurrentTimeLine goNewDay={goNewDay} />}
       {hours.map(hour => {
-        //  getting all events from the day we will render
-
-        const hourEvents = dayEvents.filter(event => event.dateFrom.getHours() === hour);
+        const hourEvents = dayEvents
+          ? dayEvents.filter(event => event.dateFrom.getHours() === hour)
+          : null;
 
         return (
           <Hour
             key={dataDay + hour}
             dataHour={hour}
             hourEvents={hourEvents}
-            onRemoveEvent={onRemoveEvent}
+            onUpdateEvents={onUpdateEvents}
           />
         );
       })}
