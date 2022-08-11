@@ -17,7 +17,7 @@ const App = () => {
         setEvents(eventsData);
       })
       .catch(() => {
-        alert("Internal Server Error. Can't display events. Try refresh page");
+        alert("Internal Server Error. Can't display events. Try to refresh the page");
       });
   };
 

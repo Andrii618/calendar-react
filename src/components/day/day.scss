@@ -10,13 +10,13 @@
   position: absolute;
   z-index: 2;
   width: 100%;
-  border-top: 2px solid #ff6868;
+  border-top: 2px solid #f00;
 
   &__circle {
     position: absolute;
     top: -6.5px;
     left: -6.5px;
-    color: #ff6868;
+    color: #f00;
     font-size: 12px;
   }
 }

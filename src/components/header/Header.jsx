@@ -2,6 +2,8 @@ import React from 'react';
 
 import { getMonth } from '../../utils/dateUtils';
 
+import Clock from '../clock/clock';
+
 import './header.scss';
 
 const Header = ({
