@@ -20,7 +20,11 @@ const CurrentTimeLine = ({ setNewDay }) => {
     };
   }, []);
 
-  return <div className="red-line" style={{ top: passedMins }}></div>;
+  return (
+    <div className="red-line" style={{ top: passedMins }}>
+      <i className="fas fa-circle red-line__circle"></i>
+    </div>
+  );
 };
 
 export default CurrentTimeLine;

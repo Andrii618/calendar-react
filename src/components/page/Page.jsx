@@ -22,7 +22,7 @@ const Page = ({ toggleModal, events, updateEvents }) => {
   };
 
   return (
-    <>
+    <div>
       <Header
         goNextWeek={handleNextWeekClick}
         goPrevWeek={handlePrevWeekClick}
@@ -37,7 +37,7 @@ const Page = ({ toggleModal, events, updateEvents }) => {
         events={events}
         setNewDay={handleSetCurrentDate}
       />
-    </>
+    </div>
   );
 };
 

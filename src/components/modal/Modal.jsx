@@ -54,6 +54,7 @@ const Modal = ({ hideModal, onUploadEvent }) => {
           />
         </div>
       </div>
+      <div className="modal__exit-field" onClick={hideModal}></div>
     </div>
   );
 };
