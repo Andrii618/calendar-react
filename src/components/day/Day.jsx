@@ -5,12 +5,12 @@ import Hour from '../hour/Hour';
 
 import './day.scss';
 
-const Day = ({ dataDay, dayEvents, isCurrentDay, onUpdateEvents, goNewDay }) => {
+const Day = ({ dataDay, dayEvents, isCurrentDay, onUpdateEvents, setNewDay }) => {
   const hours = Array.from({ length: 24 }, (_, index) => index);
 
   return (
     <div className={'calendar__day'} data-day={dataDay}>
-      {isCurrentDay && <CurrentTimeLine goNewDay={goNewDay} />}
+      {isCurrentDay && <CurrentTimeLine setNewDay={setNewDay} />}
       {hours.map(hour => {
         const hourEvents = dayEvents
           ? dayEvents.filter(event => event.dateFrom.getHours() === hour)

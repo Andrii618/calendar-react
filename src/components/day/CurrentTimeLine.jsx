@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { getMinsPassed } from '../../utils/dateUtils';
 
-const CurrentTimeLine = ({ goNewDay }) => {
+const CurrentTimeLine = ({ setNewDay }) => {
   const [passedMins, setPassedMins] = useState(getMinsPassed());
 
   useEffect(() => {
@@ -10,8 +10,10 @@ const CurrentTimeLine = ({ goNewDay }) => {
       const currentMins = getMinsPassed();
       setPassedMins(currentMins);
 
-      if (currentMins === 0) {
-        goNewDay();
+      if (currentMins === 1439) {
+        setTimeout(() => {
+          setNewDay();
+        }, 1000);
       }
     }, 60000);
 

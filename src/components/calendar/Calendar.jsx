@@ -6,7 +6,7 @@ import Week from '../week/Week';
 
 import './calendar.scss';
 
-const Calendar = ({ onUpdateEvents, goNewDay, weekDates, events }) => (
+const Calendar = ({ onUpdateEvents, setNewDay, weekDates, events }) => (
   <section className="calendar">
     <Navigation weekDates={weekDates} />
     <div className="calendar__body">
@@ -16,7 +16,7 @@ const Calendar = ({ onUpdateEvents, goNewDay, weekDates, events }) => (
           weekDates={weekDates}
           events={events}
           onUpdateEvents={onUpdateEvents}
-          goNewDay={goNewDay}
+          setNewDay={setNewDay}
         />
       </div>
     </div>
