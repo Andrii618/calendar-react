@@ -10,10 +10,8 @@ const CurrentTimeLine = ({ setNewDay }) => {
       const currentMins = getMinsPassed();
       setPassedMins(currentMins);
 
-      if (currentMins === 1439) {
-        setTimeout(() => {
-          setNewDay();
-        }, 1000);
+      if (currentMins === 0) {
+        setNewDay();
       }
     }, 60000);
 

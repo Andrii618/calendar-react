@@ -3,7 +3,7 @@ import { removeEvent } from '../../gateway/events';
 
 import './event.scss';
 
-const Event = ({ height, marginTop, title, time, onRemoveEvent, id }) => {
+const Event = ({ height, marginTop, title, time, updateEvents, id }) => {
   const eventStyle = {
     height,
     marginTop,
@@ -11,7 +11,7 @@ const Event = ({ height, marginTop, title, time, onRemoveEvent, id }) => {
 
   const handleRemoveEvent = () => {
     removeEvent(id).then(() => {
-      onRemoveEvent();
+      updateEvents();
     });
   };
 

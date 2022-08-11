@@ -8,7 +8,7 @@ const Header = ({ goNextWeek, goPrevWeek, goCurrentWeek, onClickCreate, weekDate
   <header className="header">
     <button className="button create-event-btn" onClick={onClickCreate}>
       <i className="fas fa-plus create-event-btn__icon"></i>
-      Create
+      Create event
     </button>
     <div className="navigation">
       <button className="navigation__today-btn button" onClick={goCurrentWeek}>

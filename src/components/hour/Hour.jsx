@@ -20,7 +20,7 @@ const Hour = ({ dataHour, hourEvents, onUpdateEvents }) => (
             marginTop={dateFrom.getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
             title={title}
-            onRemoveEvent={onUpdateEvents}
+            updateEvents={onUpdateEvents}
           />
         );
       })}
