@@ -17,16 +17,6 @@ export const generateWeekRange = startDate =>
     return new Date(base.setDate(base.getDate() + count));
   });
 
-export const getDivisionResult = (firstTime, secondTime) => {
-  const [firstHours, firstMinutes] = firstTime.split(':');
-  const [secondHours, secondMinutes] = secondTime.split(':');
-
-  return (
-    new Date(null, null, null, firstHours, firstMinutes) >=
-    new Date(null, null, null, secondHours, secondMinutes)
-  );
-};
-
 export const getDateTime = (date, time) => {
   const [hours, minutes] = time.split(':');
   const withHours = new Date(new Date(date).setHours(Number(hours)));
@@ -61,7 +51,7 @@ export const formatTime = time => {
 
   const minsRound = Math.round(minutes / 15);
 
-  const formattedMins = minsRound === 0 || minsRound === 4 ? '00' : formatTimeValue(minsRound * 15);
+  const formattedMins = minsRound === 4 ? '45' : formatTimeValue(minsRound * 15);
 
   return `${hours}:${formattedMins}`;
 };

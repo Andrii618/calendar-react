@@ -9,6 +9,7 @@
     height: 30px;
     border: none;
     transition: border-bottom 0.3s;
+    text-overflow: ellipsis;
     color: #2b292dcc;
 
     &:focus {

@@ -2,25 +2,23 @@ import React, { useEffect, useState } from 'react';
 
 import { uploadEvent } from '../../gateway/events';
 import { formatTime } from '../../utils/dateUtils';
-import createEventData from '../../gateway/createEventData';
+import { createEventData } from '../../gateway/createEventData';
 
 import Form from '../form/Form';
 
 import './modal.scss';
 
-const Modal = ({ hideModal, onUploadEvent }) => {
+const Modal = ({ hideModal, onUploadEvent, eventTime }) => {
   const [eventData, setEventData] = useState({
     title: '',
     description: '',
-    startTime: '',
-    endTime: '',
-    date: '',
+    ...eventTime,
   });
 
-  const [isEventFilled, setIsFormFull] = useState(false);
+  const [isEventFilled, setIsEventFull] = useState(false);
 
   useEffect(() => {
-    setIsFormFull(!Object.values(eventData).some(value => value === ''));
+    setIsEventFull(eventData.title !== '');
   }, [eventData]);
 
   const handleSubmitData = e => {
@@ -35,6 +33,7 @@ const Modal = ({ hideModal, onUploadEvent }) => {
 
   const handleDataChanges = ({ target }) => {
     const value = target.type === 'time' ? formatTime(target.value) : target.value;
+    console.log(value);
 
     setEventData({ ...eventData, [target.name]: value });
   };
@@ -54,7 +53,7 @@ const Modal = ({ hideModal, onUploadEvent }) => {
           />
         </div>
       </div>
-      <div className="modal__exit-field" onClick={hideModal}></div>
+      <div className="modal__close-field" onClick={hideModal}></div>
     </div>
   );
 };

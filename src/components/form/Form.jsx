@@ -16,7 +16,7 @@ const Form = ({ eventData, isFilled, onDataChange, handleSubmit }) => {
         name="title"
         placeholder="Write title..."
         className="event-form__field"
-        maxLength="23"
+        maxLength="36"
         value={eventData.title}
         onChange={onDataChange}
       />
@@ -54,7 +54,7 @@ const Form = ({ eventData, isFilled, onDataChange, handleSubmit }) => {
         style={{ height: eventData.description.length * 0.8 + 30 }}
       ></textarea>
       <button type="submit" className={submitButtonStyles} disabled={!isFilled}>
-        {isFilled ? 'Create event' : 'Fill all fields, please'}
+        {isFilled ? 'Create event' : 'Fill fields, please'}
       </button>
     </form>
   );

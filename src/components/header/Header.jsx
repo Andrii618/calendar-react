@@ -4,9 +4,22 @@ import { getMonth } from '../../utils/dateUtils';
 
 import './header.scss';
 
-const Header = ({ goNextWeek, goPrevWeek, goCurrentWeek, onClickCreate, weekDates }) => (
+const Header = ({
+  goNextWeek,
+  goPrevWeek,
+  goCurrentWeek,
+  onClickCreate,
+  onSetEventTime,
+  weekDates,
+}) => (
   <header className="header">
-    <button className="button create-event-btn" onClick={onClickCreate}>
+    <button
+      className="button create-event-btn"
+      onClick={() => {
+        onClickCreate();
+        onSetEventTime(new Date());
+      }}
+    >
       <i className="fas fa-plus create-event-btn__icon"></i>
       Create event
     </button>

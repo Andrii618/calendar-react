@@ -6,3 +6,15 @@
 // }
 
 // was wanted for alert if start time bigger than end time
+
+// export const getDivisionResult = (firstTime, secondTime) => {
+//   const [firstHours, firstMinutes] = firstTime.split(':');
+//   const [secondHours, secondMinutes] = secondTime.split(':');
+
+//   return (
+//     new Date(null, null, null, firstHours, firstMinutes) >=
+//     new Date(null, null, null, secondHours, secondMinutes)
+//   );
+// };
+
+//  setIsFormFull(Object.values(eventData).every(value => value !== ''));
