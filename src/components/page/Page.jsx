@@ -37,6 +37,7 @@ const Page = ({ toggleModal, events, updateEvents, setEventTime }) => {
         weekDates={weekDates}
         events={events}
         setNewDay={handleSetCurrentDate}
+        setEventTime={setEventTime}
       />
     </div>
   );

@@ -7,7 +7,7 @@ import Day from '../day/Day';
 
 import './week.scss';
 
-const Week = ({ weekDates, events, onUpdateEvents, setNewDay }) => (
+const Week = ({ weekDates, events, onUpdateEvents, setNewDay, setEventTime }) => (
   <div className="calendar__week">
     {weekDates.map((dayOfMonth, index) => {
       const dayEnd = new Date(dayOfMonth.getTime()).setHours(dayOfMonth.getHours() + 24);
@@ -22,6 +22,8 @@ const Week = ({ weekDates, events, onUpdateEvents, setNewDay }) => (
           isCurrentDay={isCurrentDay(weekDates[index])}
           onUpdateEvents={onUpdateEvents}
           setNewDay={setNewDay}
+          setEventTime={setEventTime}
+          eventDate={dayOfMonth}
         />
       );
     })}

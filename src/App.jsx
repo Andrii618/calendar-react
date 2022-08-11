@@ -31,6 +31,7 @@ const App = () => {
 
   const handleSetEventTime = time => {
     setEventTime(createEventTime(time));
+    toggleModalVisibility();
   };
 
   return (

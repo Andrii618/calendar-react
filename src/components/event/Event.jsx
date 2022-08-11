@@ -9,7 +9,9 @@ const Event = ({ height, marginTop, title, time, updateEvents, id }) => {
     marginTop,
   };
 
-  const handleRemoveEvent = () => {
+  const handleRemoveEvent = e => {
+    e.stopPropagation();
+
     removeEvent(id).then(() => {
       updateEvents();
     });

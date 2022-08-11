@@ -33,7 +33,6 @@ const Modal = ({ hideModal, onUploadEvent, eventTime }) => {
 
   const handleDataChanges = ({ target }) => {
     const value = target.type === 'time' ? formatTime(target.value) : target.value;
-    console.log(value);
 
     setEventData({ ...eventData, [target.name]: value });
   };
