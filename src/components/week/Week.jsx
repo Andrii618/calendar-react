@@ -10,7 +10,7 @@ import './week.scss';
 const Week = ({ weekDates, events, onUpdateEvents, setNewDay, setEventTime }) => (
   <div className="calendar__week">
     {weekDates.map((dayOfMonth, index) => {
-      const dayEnd = new Date(dayOfMonth.getTime()).setHours(dayOfMonth.getHours() + 24);
+      const dayEnd = new Date(dayOfMonth).setHours(dayOfMonth.getHours() + 24);
 
       const dayEvents = events ? getDailyEvents(events, dayOfMonth, dayEnd) : null;
 

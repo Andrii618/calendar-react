@@ -1,4 +1,4 @@
-const baseUrl = 'https://62f546caac59075124cf01a8.mockapi.io/api/v1/events';
+const baseUrl = 'https://62f61ce1a3bce3eed7b96e04.mockapi.io/api/v1/events';
 
 export const fetchEvents = () =>
   fetch(baseUrl).then(res => {

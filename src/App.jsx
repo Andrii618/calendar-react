@@ -46,7 +46,8 @@ const App = () => {
         <Modal
           hideModal={toggleModalVisibility}
           onUploadEvent={handleEventsFetch}
-          eventTime={eventTime}
+          eventTimeData={eventTime}
+          events={events}
         ></Modal>
       )}
     </>

@@ -3,22 +3,27 @@ import React, { useEffect, useState } from 'react';
 import { uploadEvent } from '../../gateway/events';
 import { formatTime } from '../../utils/dateUtils';
 import { createEventData } from '../../gateway/createEventData';
+import { timeValidation } from './eventsValidation';
 
 import Form from '../form/Form';
 
 import './modal.scss';
 
-const Modal = ({ hideModal, onUploadEvent, eventTime }) => {
+const Modal = ({ hideModal, onUploadEvent, events, eventTimeData }) => {
   const [eventData, setEventData] = useState({
     title: '',
     description: '',
-    ...eventTime,
+    ...eventTimeData,
   });
 
-  const [isEventFilled, setIsEventFull] = useState(false);
+  const [isEventFilled, setIsEventFilled] = useState(false);
 
   useEffect(() => {
-    setIsEventFull(eventData.title !== '');
+    const { startTime, endTime, date, title } = eventData;
+
+    const isValid = title !== '' && timeValidation(events, date, startTime, endTime);
+
+    setIsEventFilled(isValid);
   }, [eventData]);
 
   const handleSubmitData = e => {
