@@ -1,4 +1,4 @@
-.event-form {
+.create-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -14,7 +14,7 @@
 
     &:focus {
       outline: none;
-      border-bottom: 3px solid #372be299;
+      border-bottom: 3px solid #9171ff;
     }
   }
 
@@ -36,7 +36,7 @@
     margin: 8px 8px 8px auto;
     border: none;
     color: #fff;
-    background-color: #372be299;
+    background-color: #9171ff;
     border: none;
     padding: 8px 16px;
     border-radius: 8px;

@@ -9,7 +9,7 @@ import Modal from './components/modal/Modal';
 const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [events, setEvents] = useState(null);
-  const [eventTime, setEventTime] = useState();
+  const [eventTime, setEventTime] = useState(null);
 
   const handleEventsFetch = () => {
     fetchEvents()

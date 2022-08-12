@@ -9,7 +9,7 @@ import CreateForm from '../create_form/CreateForm';
 
 import './modal.scss';
 
-const Modal = ({ hideModal, onUploadEvent, eventDataObj, events }) => {
+const Modal = ({ hideModal, onUploadEvent, events, eventDataObj }) => {
   const [eventData, setEventData] = useState({
     ...eventDataObj,
   });

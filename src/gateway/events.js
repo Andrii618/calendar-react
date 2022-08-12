@@ -1,4 +1,4 @@
-const baseUrl = 'https://62f61ce1a3bce3eed7b96e04.mockapi.io/api/v1/events';
+const baseUrl = 'https://62f69729612c13062b518ff1.mockapi.io/api/v1/events';
 
 export const fetchEvents = () =>
   fetch(baseUrl).then(res => {
@@ -24,9 +24,22 @@ export const uploadEvent = eventData =>
 
 export const removeEvent = id =>
   fetch(`${baseUrl}/${id}`, {
-    method: 'Delete',
+    method: 'DELETE',
   }).then(response => {
     if (!response.ok) {
       throw new Error('Failed to delete task');
+    }
+  });
+
+export const updateEvent = (id, eventData) =>
+  fetch(`${baseUrl}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(eventData),
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to update task');
     }
   });

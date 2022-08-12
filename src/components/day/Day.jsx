@@ -9,9 +9,9 @@ const Day = ({
   dataDay,
   dayEvents,
   isCurrentDay,
-  onUpdateEvents,
   setNewDay,
   setEventTime,
+  setEventData,
   eventDate,
 }) => {
   const hours = Array.from({ length: 24 }, (_, index) => index);
@@ -29,9 +29,9 @@ const Day = ({
             key={dataDay + hour}
             dataHour={hour}
             hourEvents={hourEvents}
-            onUpdateEvents={onUpdateEvents}
             onSetEventTime={setEventTime}
             eventDate={eventDate}
+            setEventData={setEventData}
           />
         );
       })}

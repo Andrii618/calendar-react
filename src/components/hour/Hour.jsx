@@ -5,7 +5,7 @@ import Event from '../event/Event';
 
 import './hour.scss';
 
-const Hour = ({ dataHour, hourEvents, onUpdateEvents, onSetEventTime, eventDate }) => (
+const Hour = ({ dataHour, hourEvents, onSetEventTime, eventDate, setEventData }) => (
   <div
     className="calendar__time-slot"
     data-time={dataHour + 1}
@@ -15,7 +15,7 @@ const Hour = ({ dataHour, hourEvents, onUpdateEvents, onSetEventTime, eventDate 
     }}
   >
     {hourEvents &&
-      hourEvents.map(({ id, dateFrom, dateTo, title }) => {
+      hourEvents.map(({ id, dateFrom, dateTo, title, description }) => {
         const eventStart = `${formatTimeValue(dateFrom.getHours())}:${formatTimeValue(
           dateFrom.getMinutes(),
         )}`;
@@ -32,7 +32,13 @@ const Hour = ({ dataHour, hourEvents, onUpdateEvents, onSetEventTime, eventDate 
             marginTop={dateFrom.getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
             title={title}
-            updateEvents={onUpdateEvents}
+            description={description}
+            onSetEventData={setEventData}
+            startTime={eventStart}
+            endTime={eventEnd}
+            date={`${dateFrom.getFullYear()}-${formatTimeValue(
+              dateFrom.getMonth() + 1,
+            )}-${formatTimeValue(dateFrom.getDate())}`}
           />
         );
       })}
