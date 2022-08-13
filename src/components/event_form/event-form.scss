@@ -1,8 +1,8 @@
-.create-form {
+.event-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 352px;
+  width: 333px;
 
   &__field {
     margin: 8px;
@@ -26,14 +26,23 @@
   }
 
   &__desc {
-    width: 338px;
     height: 120px;
     resize: none;
     overflow-y: hidden;
   }
 
-  &__submit-btn {
-    margin: 8px 8px 8px auto;
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    &_filled {
+      justify-content: space-around;
+    }
+  }
+
+  &__change-btn {
+    margin: 8px;
+    width: 120px;
     border: none;
     color: #fff;
     background-color: #9171ff;
@@ -57,6 +66,28 @@
       &:hover {
         transform: scale(1.1);
       }
+    }
+  }
+
+  &__remove-btn {
+    width: 120px;
+    margin: 8px;
+    margin-left: 2px;
+    border: none;
+    color: #fff;
+    background-color: #ff7171;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
+      0px 1px 0px 0px #ffffff1a inset;
+    font-weight: 700;
+    cursor: pointer;
+    animation: move 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }

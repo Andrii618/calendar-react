@@ -1,17 +1,25 @@
 import React from 'react';
 
 import { formatTimeValue } from '../../utils/dateUtils.js';
+import { createDateProp } from '../../utils/createEventData.js';
+
 import Event from '../event/Event';
 
 import './hour.scss';
 
-const Hour = ({ dataHour, hourEvents, onSetEventTime, eventDate, setEventData }) => (
+const Hour = ({ setEventData, dataHour, hourEvents, eventDate }) => (
   <div
     className="calendar__time-slot"
     data-time={dataHour + 1}
     onClick={e => {
       e.stopPropagation();
-      onSetEventTime(new Date(eventDate.setHours(dataHour)));
+
+      setEventData({
+        time: new Date(eventDate.setHours(dataHour)),
+        description: '',
+        title: '',
+        id: null,
+      });
     }}
   >
     {hourEvents &&
@@ -27,18 +35,16 @@ const Hour = ({ dataHour, hourEvents, onSetEventTime, eventDate, setEventData })
         return (
           <Event
             key={id}
-            id={id}
+            onSetEventData={setEventData}
             height={(dateTo.getTime() - dateFrom.getTime()) / 60000}
             marginTop={dateFrom.getMinutes()}
             time={`${eventStart} - ${eventEnd}`}
+            id={id}
             title={title}
-            description={description}
-            onSetEventData={setEventData}
             startTime={eventStart}
             endTime={eventEnd}
-            date={`${dateFrom.getFullYear()}-${formatTimeValue(
-              dateFrom.getMonth() + 1,
-            )}-${formatTimeValue(dateFrom.getDate())}`}
+            description={description}
+            date={createDateProp(dateFrom)}
           />
         );
       })}

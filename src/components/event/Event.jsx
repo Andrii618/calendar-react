@@ -3,38 +3,35 @@ import React from 'react';
 import './event.scss';
 
 const Event = ({
+  onSetEventData,
   height,
   marginTop,
-  title,
   time,
   id,
+  title,
   description,
-  onSetEventData,
+  date,
   startTime,
   endTime,
-  date,
 }) => {
   const lineBreak = height >= 120 ? 'anywhere' : 'initial';
 
   const eventStyle = {
     height,
     marginTop,
-
     lineBreak,
   };
 
   const handleUpdateEvent = e => {
     e.stopPropagation();
 
-    onSetEventData({ description, title, id, startTime, endTime, date });
+    onSetEventData({ description, title, id, date, startTime, endTime });
   };
 
   return (
-    <div className="event" style={{ height }} onClick={handleUpdateEvent}>
-      <div style={eventStyle} id={id} className="event__content">
-        {height >= 30 && <div className="event__title">{title}</div>}
-        {height >= 60 && <div className="event__time">{time}</div>}
-      </div>
+    <div style={eventStyle} id={id} className="event" onClick={handleUpdateEvent}>
+      {height >= 30 && <div className="event__title">{title}</div>}
+      {height >= 60 && <div className="event__time">{time}</div>}
     </div>
   );
 };

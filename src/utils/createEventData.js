@@ -1,4 +1,4 @@
-import { getDateTime, formatTimeValue } from '../utils/dateUtils';
+import { getDateTime, formatTimeValue } from './dateUtils';
 
 export const createEventData = ({ date, startTime, endTime, title, description }) => ({
   dateFrom: getDateTime(date, startTime),
@@ -7,7 +7,7 @@ export const createEventData = ({ date, startTime, endTime, title, description }
   title,
 });
 
-export const createEventTime = eventDate => {
+export const createTimeProps = eventDate => {
   const year = eventDate.getFullYear();
   const month = formatTimeValue(eventDate.getMonth() + 1);
   const day = formatTimeValue(eventDate.getDate());
@@ -18,4 +18,12 @@ export const createEventTime = eventDate => {
   const endTime = hours === 23 ? '23:45' : `${formatTimeValue(hours + 1)}:00`;
 
   return { date, startTime, endTime };
+};
+
+export const createDateProp = eventDate => {
+  const year = eventDate.getFullYear();
+  const month = formatTimeValue(eventDate.getMonth() + 1);
+  const day = formatTimeValue(eventDate.getDate());
+
+  return `${year}-${month}-${day}`;
 };

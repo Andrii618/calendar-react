@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { fetchEvents } from './gateway/events';
-import { createEventTime } from './gateway/createEventData';
+import { createTimeProps } from './utils/createEventData';
 
 import Page from './components/page/Page';
 import Modal from './components/modal/Modal';
@@ -9,45 +9,52 @@ import Modal from './components/modal/Modal';
 const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [events, setEvents] = useState(null);
-  const [eventTime, setEventTime] = useState(null);
+  const [eventData, setEventData] = useState(null);
+
+  const toggleModalVisibility = booleanValue => {
+    setIsModalVisible(booleanValue);
+  };
 
   const handleEventsFetch = () => {
-    fetchEvents()
-      .then(eventsData => {
-        setEvents(eventsData);
-      })
-      .catch(() => {
-        alert("Internal Server Error. Can't display events. Try to refresh the page");
-      });
+    fetchEvents().then(eventsData => {
+      setEvents(eventsData);
+    });
+
+    toggleModalVisibility(false);
   };
 
   useEffect(() => {
     handleEventsFetch();
   }, []);
 
-  const toggleModalVisibility = () => {
-    setIsModalVisible(!isModalVisible);
-  };
+  const handleSetEventData = eventDataObj => {
+    setEventData(eventDataObj);
 
-  const handleSetEventTime = time => {
-    setEventTime(createEventTime(time));
-    toggleModalVisibility();
+    if (eventDataObj?.time) {
+      const eventTimeData = createTimeProps(eventDataObj.time);
+      setEventData({ ...eventTimeData, description: '', title: '', id: null });
+    }
+
+    toggleModalVisibility(true);
   };
 
   return (
     <>
       <Page
-        toggleModal={toggleModalVisibility}
+        openModal={() => {
+          toggleModalVisibility(true);
+        }}
         updateEvents={handleEventsFetch}
+        setEventData={handleSetEventData}
         events={events}
-        setEventTime={handleSetEventTime}
       />
       {isModalVisible && (
         <Modal
-          hideModal={toggleModalVisibility}
+          hideModal={() => {
+            toggleModalVisibility(false);
+          }}
           onUploadEvent={handleEventsFetch}
-          eventTimeData={eventTime}
-          events={events}
+          eventData={eventData}
         ></Modal>
       )}
     </>

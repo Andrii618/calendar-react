@@ -9,7 +9,7 @@ export const fetchEvents = () =>
     return res.json();
   });
 
-export const uploadEvent = eventData =>
+export const createEvent = eventData =>
   fetch(baseUrl, {
     method: 'POST',
     headers: {

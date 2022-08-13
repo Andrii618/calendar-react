@@ -5,15 +5,7 @@ import Hour from '../hour/Hour';
 
 import './day.scss';
 
-const Day = ({
-  dataDay,
-  dayEvents,
-  isCurrentDay,
-  setNewDay,
-  setEventTime,
-  setEventData,
-  eventDate,
-}) => {
+const Day = ({ setNewDay, setEventData, dataDay, dayEvents, isCurrentDay, eventDate }) => {
   const hours = Array.from({ length: 24 }, (_, index) => index);
 
   return (
@@ -27,11 +19,10 @@ const Day = ({
         return (
           <Hour
             key={dataDay + hour}
+            setEventData={setEventData}
             dataHour={hour}
             hourEvents={hourEvents}
-            onSetEventTime={setEventTime}
             eventDate={eventDate}
-            setEventData={setEventData}
           />
         );
       })}

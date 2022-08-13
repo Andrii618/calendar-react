@@ -4,7 +4,7 @@ import { getWeekStartDate, generateWeekRange } from '../../utils/dateUtils';
 import Calendar from '../calendar/Calendar';
 import Header from '../header/Header';
 
-const Page = ({ toggleModal, events, updateEvents, setEventTime }) => {
+const Page = ({ openModal, setEventData, events }) => {
   const [weekStartDate, setWeekStartDate] = useState(new Date());
 
   const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
@@ -24,20 +24,18 @@ const Page = ({ toggleModal, events, updateEvents, setEventTime }) => {
   return (
     <div>
       <Header
+        goCurrentWeek={handleSetCurrentDate}
         goNextWeek={handleNextWeekClick}
         goPrevWeek={handlePrevWeekClick}
-        goCurrentWeek={handleSetCurrentDate}
-        createEvent={updateEvents}
-        onClickCreate={toggleModal}
-        onSetEventTime={setEventTime}
+        onClickCreate={openModal}
+        onSetEventData={setEventData}
         weekDates={weekDates}
       />
       <Calendar
-        onUpdateEvents={updateEvents}
-        weekDates={weekDates}
-        events={events}
         setNewDay={handleSetCurrentDate}
-        setEventTime={setEventTime}
+        setEventData={setEventData}
+        events={events}
+        weekDates={weekDates}
       />
     </div>
   );
