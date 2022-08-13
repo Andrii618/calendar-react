@@ -5,9 +5,12 @@ import { createTimeProps } from './utils/createEventData';
 
 import Page from './components/page/Page';
 import Modal from './components/modal/Modal';
+import Alert from './components/alert/alert';
 
 const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isAlertExist, setIsAlertExist] = useState(false);
+  const [alertText, setAlertText] = useState('');
   const [events, setEvents] = useState(null);
   const [eventData, setEventData] = useState(null);
 
@@ -16,11 +19,21 @@ const App = () => {
   };
 
   const handleEventsFetch = () => {
-    fetchEvents().then(eventsData => {
-      setEvents(eventsData);
-    });
+    fetchEvents()
+      .then(eventsData => {
+        setEvents(eventsData);
+      })
+      .catch(() => {
+        setAlertText("Internal Server Error. Can't display events");
+        setIsAlertExist(true);
 
-    toggleModalVisibility(false);
+        setTimeout(() => {
+          setIsAlertExist(false);
+        }, 6000);
+      })
+      .finally(() => {
+        toggleModalVisibility(false);
+      });
   };
 
   useEffect(() => {
@@ -32,6 +45,7 @@ const App = () => {
 
     if (eventDataObj?.time) {
       const eventTimeData = createTimeProps(eventDataObj.time);
+
       setEventData({ ...eventTimeData, description: '', title: '', id: null });
     }
 
@@ -57,6 +71,7 @@ const App = () => {
           eventData={eventData}
         ></Modal>
       )}
+      {isAlertExist && <Alert errorText={alertText} />}
     </>
   );
 };

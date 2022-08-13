@@ -8,7 +8,7 @@ const Header = ({
   goCurrentWeek,
   goNextWeek,
   goPrevWeek,
-  onClickCreate,
+  openModal,
   onSetEventData,
   weekDates,
 }) => (
@@ -16,7 +16,7 @@ const Header = ({
     <button
       className="button create-event-btn"
       onClick={() => {
-        onClickCreate();
+        openModal();
         onSetEventData({ time: new Date() });
       }}
     >

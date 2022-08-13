@@ -27,7 +27,7 @@ const Page = ({ openModal, setEventData, events }) => {
         goCurrentWeek={handleSetCurrentDate}
         goNextWeek={handleNextWeekClick}
         goPrevWeek={handlePrevWeekClick}
-        onClickCreate={openModal}
+        openModal={openModal}
         onSetEventData={setEventData}
         weekDates={weekDates}
       />
