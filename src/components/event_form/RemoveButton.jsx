@@ -6,13 +6,9 @@ const RemoveButton = ({ id, updateEvents }) => {
   const handleRemoveEvent = e => {
     e.preventDefault();
 
-    removeEvent(id)
-      .then(() => {
-        updateEvents();
-      })
-      .catch(() => {
-        alert("Internal Server Error. Can't remove event. Try to refresh the page");
-      });
+    removeEvent(id).then(() => {
+      updateEvents();
+    });
   };
 
   return (

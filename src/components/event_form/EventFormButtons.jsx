@@ -6,7 +6,9 @@ import RemoveButton from './RemoveButton';
 import UpdateButton from './UpdateButton';
 
 const EventFormButtons = ({ eventData, isFilled, onUpdateEvents }) => {
-  const IsUpdateMode = Boolean(eventData.id);
+  const { id } = eventData;
+
+  const IsUpdateMode = Boolean(id);
 
   const eventFormButtonsClass = classNames('event-form__buttons', {
     'event-form__buttons_filled': IsUpdateMode,
@@ -19,8 +21,13 @@ const EventFormButtons = ({ eventData, isFilled, onUpdateEvents }) => {
       )}
       {IsUpdateMode && (
         <>
-          <RemoveButton id={eventData.id} updateEvents={onUpdateEvents} />
-          <UpdateButton isWorking={isFilled} eventData={eventData} updateEvents={onUpdateEvents} />
+          <RemoveButton id={id} updateEvents={onUpdateEvents} />
+          <UpdateButton
+            id={id}
+            isWorking={isFilled}
+            eventData={eventData}
+            updateEvents={onUpdateEvents}
+          />
         </>
       )}
     </div>

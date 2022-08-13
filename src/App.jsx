@@ -18,18 +18,22 @@ const App = () => {
     setIsModalVisible(booleanValue);
   };
 
+  const handleShowAlert = errorText => {
+    setAlertText(errorText);
+    setIsAlertExist(true);
+
+    setTimeout(() => {
+      setIsAlertExist(false);
+    }, 6000);
+  };
+
   const handleEventsFetch = () => {
     fetchEvents()
       .then(eventsData => {
         setEvents(eventsData);
       })
       .catch(() => {
-        setAlertText("Internal Server Error. Can't display events");
-        setIsAlertExist(true);
-
-        setTimeout(() => {
-          setIsAlertExist(false);
-        }, 6000);
+        handleShowAlert("Internal Server Error. Can't display events");
       })
       .finally(() => {
         toggleModalVisibility(false);
@@ -69,6 +73,8 @@ const App = () => {
           }}
           onUploadEvent={handleEventsFetch}
           eventData={eventData}
+          events={events}
+          showAlert={handleShowAlert}
         ></Modal>
       )}
       {isAlertExist && <Alert errorText={alertText} />}

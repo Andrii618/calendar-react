@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { updateEvent } from '../../gateway/events';
 import { createEventData } from '../../utils/createEventData';
 
-const UpdateButton = ({ eventData, isWorking, updateEvents }) => {
+const UpdateButton = ({ id, eventData, isWorking, updateEvents }) => {
   const updateButtonClass = classNames('event-form__change-btn', {
     'event-form__change-btn_working': isWorking,
     'event-form__change-btn_disabled': isWorking === false,
@@ -13,7 +13,7 @@ const UpdateButton = ({ eventData, isWorking, updateEvents }) => {
   const handleChangeEventData = e => {
     e.preventDefault();
 
-    updateEvent(eventData.id, createEventData(eventData)).then(() => {
+    updateEvent(id, createEventData(eventData)).then(() => {
       updateEvents();
     });
   };
