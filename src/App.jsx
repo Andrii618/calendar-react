@@ -18,13 +18,9 @@ const App = () => {
     setIsModalVisible(booleanValue);
   };
 
-  const handleShowAlert = errorText => {
+  const handleShowAlert = (booleanValue, errorText) => {
     setAlertText(errorText);
-    setIsAlertExist(true);
-
-    setTimeout(() => {
-      setIsAlertExist(false);
-    }, 2000);
+    setIsAlertExist(booleanValue);
   };
 
   const handleEventsFetch = () => {

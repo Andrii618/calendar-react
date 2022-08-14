@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
+
+import { getOverlapResult } from '../../utils/timeValidation';
 
 import CreateButton from './CreateButton';
 import RemoveButton from './RemoveButton';
 import UpdateButton from './UpdateButton';
 
-const EventFormButtons = ({ eventData, isFilled, onUpdateEvents, showAlert }) => {
-  const { id } = eventData;
+const EventFormButtons = ({ eventData, onUpdateEvents, showAlert, events }) => {
+  const [isWorking, setIsWorking] = useState(false);
+
+  const { date, startTime, endTime, id, title } = eventData;
+
+  useEffect(() => {
+    let isEventOverlap =
+      getOverlapResult(events, date, startTime, endTime, id) || startTime >= endTime;
+
+    showAlert(isEventOverlap, 'Your event overlaps already existed or put time is incrorrect');
+
+    if (title === '') {
+      isEventOverlap = true;
+    }
+
+    setIsWorking(!isEventOverlap);
+  }, [eventData]);
 
   const IsUpdateMode = Boolean(id);
 
@@ -18,7 +35,7 @@ const EventFormButtons = ({ eventData, isFilled, onUpdateEvents, showAlert }) =>
     <div className={eventFormButtonsClass}>
       {!IsUpdateMode && (
         <CreateButton
-          isWorking={isFilled}
+          isWorking={isWorking}
           eventData={eventData}
           updateEvents={onUpdateEvents}
           showHint={showAlert}
@@ -29,7 +46,7 @@ const EventFormButtons = ({ eventData, isFilled, onUpdateEvents, showAlert }) =>
           <RemoveButton id={id} updateEvents={onUpdateEvents} />
           <UpdateButton
             id={id}
-            isWorking={isFilled}
+            isWorking={isWorking}
             eventData={eventData}
             updateEvents={onUpdateEvents}
           />

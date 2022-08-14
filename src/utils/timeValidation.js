@@ -5,8 +5,9 @@ const HOURS_LIMIT = 6;
 
 export const checkUpdateEventOverlap = (taskId, id, eventStart, dateFrom, eventEnd, dateTo) => {
   if (
-    (taskId === id && eventStart <= dateFrom && eventEnd >= dateTo) ||
-    (taskId === id && eventStart >= dateFrom && eventEnd <= dateTo)
+    (eventStart <= dateFrom && eventEnd >= dateTo) ||
+    (eventStart >= dateFrom && eventEnd <= dateTo) ||
+    eventEnd !== dateFrom
   ) {
     return false;
   }
