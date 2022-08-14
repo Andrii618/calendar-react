@@ -7,7 +7,7 @@ import EventFormButtons from './EventFormButtons';
 
 import './event-form.scss';
 
-const EventForm = ({ eventDataObj, onUpdateEvents, showAlert, events }) => {
+const EventForm = ({ eventDataObj, onUpdateEvents, events, showAlert }) => {
   const [eventData, setEventData] = useState({
     ...eventDataObj,
   });

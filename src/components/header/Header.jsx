@@ -33,7 +33,7 @@ const Header = ({
             eventsCounter !== 0 &&
             `You planned ${eventsCounter} ${eventsCounter === 1 ? 'event' : 'events'}`}
         </span>
-        <button className="navigation__today-btn button" onClick={goCurrentWeek}>
+        <button className="button navigation__today-btn" onClick={goCurrentWeek}>
           Today
         </button>
         <button className="icon-button navigation__nav-icon" onClick={goPrevWeek}>
