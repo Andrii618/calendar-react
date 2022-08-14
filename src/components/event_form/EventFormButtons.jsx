@@ -5,7 +5,7 @@ import CreateButton from './CreateButton';
 import RemoveButton from './RemoveButton';
 import UpdateButton from './UpdateButton';
 
-const EventFormButtons = ({ eventData, isFilled, onUpdateEvents }) => {
+const EventFormButtons = ({ eventData, isFilled, onUpdateEvents, showAlert }) => {
   const { id } = eventData;
 
   const IsUpdateMode = Boolean(id);
@@ -17,7 +17,12 @@ const EventFormButtons = ({ eventData, isFilled, onUpdateEvents }) => {
   return (
     <div className={eventFormButtonsClass}>
       {!IsUpdateMode && (
-        <CreateButton isWorking={isFilled} eventData={eventData} updateEvents={onUpdateEvents} />
+        <CreateButton
+          isWorking={isFilled}
+          eventData={eventData}
+          updateEvents={onUpdateEvents}
+          showHint={showAlert}
+        />
       )}
       {IsUpdateMode && (
         <>

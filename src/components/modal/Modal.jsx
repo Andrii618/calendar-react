@@ -15,7 +15,7 @@ const Modal = ({ eventData, hideModal, onUploadEvent, events, showAlert }) => (
           eventDataObj={eventData}
           onUpdateEvents={onUploadEvent}
           events={events}
-          showHint={showAlert}
+          showAlert={showAlert}
         />
       </div>
     </div>

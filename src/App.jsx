@@ -24,7 +24,7 @@ const App = () => {
 
     setTimeout(() => {
       setIsAlertExist(false);
-    }, 6000);
+    }, 2000);
   };
 
   const handleEventsFetch = () => {

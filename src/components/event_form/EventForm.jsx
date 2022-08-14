@@ -1,25 +1,35 @@
 import React, { useEffect, useState } from 'react';
 
 import { formatTime } from '../../utils/dateUtils';
-import { checkOverlap } from '../../utils/timeValidation';
+import { getOverlapResult } from '../../utils/timeValidation';
 
 import DescriptionInput from './DescriptionInput';
 import EventFormButtons from './EventFormButtons';
 
 import './event-form.scss';
 
-const EventForm = ({ eventDataObj, onUpdateEvents, events, showHint }) => {
+const EventForm = ({ eventDataObj, onUpdateEvents, events, showAlert }) => {
   const [eventData, setEventData] = useState({
     ...eventDataObj,
   });
 
+  const [isFormFilled, setIsFormFilled] = useState(false);
+
   const { date, startTime, endTime, id, title } = eventData;
 
-  const [isFormFilled, setIsFormFilled] = useState(true);
+  useEffect(() => {
+    setIsFormFilled(title !== '');
+  }, [title]);
 
   useEffect(() => {
-    setIsFormFilled(!checkOverlap(events, date, startTime, endTime, id) && title !== '');
-  });
+    const isEventOverlap = getOverlapResult(events, date, startTime, endTime, id);
+
+    if (isEventOverlap) {
+      showAlert('Some event at this time already exist');
+    }
+
+    setIsFormFilled(!isEventOverlap);
+  }, [startTime, endTime]);
 
   const handleDataChange = ({ target }) => {
     const value = target.type === 'time' ? formatTime(target.value) : target.value;
