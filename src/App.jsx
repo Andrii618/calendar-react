@@ -16,6 +16,7 @@ const App = () => {
 
   const toggleModalVisibility = booleanValue => {
     setIsModalVisible(booleanValue);
+    setIsAlertExist(false);
   };
 
   const handleShowAlert = (booleanValue, errorText) => {
@@ -29,7 +30,7 @@ const App = () => {
         setEvents(eventsData);
       })
       .catch(() => {
-        handleShowAlert("Internal Server Error. Can't display events");
+        handleShowAlert(true, "Internal Server Error. Can't display events");
       })
       .finally(() => {
         toggleModalVisibility(false);

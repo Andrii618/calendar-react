@@ -30,6 +30,7 @@ const Page = ({ openModal, setEventData, events }) => {
         openModal={openModal}
         onSetEventData={setEventData}
         weekDates={weekDates}
+        events={events}
       />
       <Calendar
         setNewDay={handleSetCurrentDate}

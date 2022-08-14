@@ -13,16 +13,15 @@ const EventFormButtons = ({ eventData, onUpdateEvents, showAlert, events }) => {
   const { date, startTime, endTime, id, title } = eventData;
 
   useEffect(() => {
-    let isEventOverlap =
-      getOverlapResult(events, date, startTime, endTime, id) || startTime >= endTime;
+    let isValid = getOverlapResult(events, date, startTime, endTime, id) || startTime >= endTime;
 
-    showAlert(isEventOverlap, 'Your event overlaps already existed or put time is incrorrect');
+    showAlert(isValid, 'Your event overlaps already existed or time format is incrorrect');
 
     if (title === '') {
-      isEventOverlap = true;
+      isValid = true;
     }
 
-    setIsWorking(!isEventOverlap);
+    setIsWorking(!isValid);
   }, [eventData]);
 
   const IsUpdateMode = Boolean(id);
