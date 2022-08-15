@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { getWeekStartDate, generateWeekRange } from '../../utils/dateUtils';
-import Calendar from '../calendar/Calendar';
 import Header from '../header/Header';
+import Calendar from '../calendar/Calendar';
 
 const Page = ({ openModal, setEventData, events, isDataGotten }) => {
   const [weekStartDate, setWeekStartDate] = useState(new Date());

@@ -3,16 +3,14 @@ import React from 'react';
 import { removeEvent } from '../../gateway/events';
 
 const RemoveButton = ({ id, updateEvents }) => {
-  const handleRemoveEvent = e => {
-    e.preventDefault();
-
+  const handleRemoveEvent = () => {
     removeEvent(id).then(() => {
       updateEvents();
     });
   };
 
   return (
-    <button type="button" className="event-form__remove-btn" onClick={handleRemoveEvent}>
+    <button type="button" className="event-form__remove-btn button" onClick={handleRemoveEvent}>
       Remove
     </button>
   );

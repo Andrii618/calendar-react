@@ -5,9 +5,8 @@ import { createEvent } from '../../gateway/events';
 import { createEventData } from '../../utils/createEventData';
 
 const CreateButton = ({ isWorking, eventData, updateEvents }) => {
-  const createButtonClass = classNames('event-form__change-btn', {
+  const createButtonClass = classNames('event-form__change-btn button', {
     'event-form__change-btn_working': isWorking,
-    'event-form__change-btn_disabled': isWorking === false,
   });
 
   const handleCreateEvent = e => {

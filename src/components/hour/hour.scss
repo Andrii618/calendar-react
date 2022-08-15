@@ -1,7 +1,9 @@
+@import '../../styles/variables.scss';
+
 .calendar {
   &__time-slot {
     height: 60px;
     position: relative;
-    border-bottom: 1px solid #cccccc66;
+    border-bottom: 1px solid $grey-color;
   }
 }

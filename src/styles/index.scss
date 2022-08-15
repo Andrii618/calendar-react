@@ -1,5 +1,8 @@
+@import 'variables.scss';
+
 * {
   box-sizing: border-box;
+
   &::-webkit-scrollbar {
     width: 0;
     background: transparent;
@@ -9,8 +12,7 @@
 body {
   font-family: Roboto;
   font-size: 16px;
-  color: #2b292dcc;
-  overflow-y: hidden;
+  color: $main-font-color;
 }
 
 h1,

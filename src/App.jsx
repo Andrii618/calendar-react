@@ -60,7 +60,6 @@ const App = () => {
         openModal={() => {
           toggleModalVisibility(true);
         }}
-        updateEvents={handleEventsFetch}
         setEventData={handleSetEventData}
         events={events}
         isDataGotten={isDataGotten}

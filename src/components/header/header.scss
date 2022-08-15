@@ -1,60 +1,41 @@
+@import '../../styles/variables.scss';
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 48px 0 65px;
   height: 70px;
-  border-bottom: 1px solid #cccccc66;
+  border-bottom: 1px solid $grey-color;
 }
 
 .create-event-btn {
-  padding: 0 16px;
-  border: 3px solid #cccccc66;
-  background-color: #fff;
-  font-weight: 700;
-  color: #2b292dcc;
-  box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
-    0px 1px 0px 0px #ffffff1a inset;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &:disabled {
-    transform: scale(1);
-    cursor: not-allowed;
-  }
+  border: 3px solid $grey-color;
+  background-color: $white-color;
+  color: $main-font-color;
 
   &__icon {
-    color: #9171ff;
     margin-right: 12px;
+    color: $main-color;
   }
 }
 
 .navigation {
   &__today-btn {
-    margin-left: 32px;
-    padding: 0 16px;
-    border: 3px solid #cccccc66;
-    box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
-      0px 1px 0px 0px #ffffff1a inset;
-    background-color: #fff;
-    color: #2b292dcc;
-    font-weight: 700;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+    border: 3px solid $grey-color;
+    background-color: $white-color;
+    color: $main-font-color;
   }
 
   &__existed-events {
+    margin-right: 24px;
     font-weight: 700;
-    color: #2b292dcc;
+    color: $main-font-color;
   }
 
   &__nav-icon {
     margin-left: 20px;
-    font-size: 16px;
+    color: $main-font-color;
   }
 
   &__displayed-month {
@@ -62,11 +43,7 @@
     margin-left: 10px;
     width: 120px;
     font-weight: 700;
-    color: #2b292dcc;
     text-align: center;
-  }
-
-  i {
-    color: #2b292dcc;
+    color: $main-font-color;
   }
 }

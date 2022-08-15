@@ -1,20 +1,21 @@
+@import '../../styles/variables.scss';
+
 .event-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 333px;
 
   &__field {
     margin: 8px;
     height: 30px;
     border: none;
-    transition: border-bottom 0.3s;
+    outline: none;
     text-overflow: ellipsis;
-    color: #2b292dcc;
+    color: $main-font-color;
+    transition: border-bottom 0.3s;
 
     &:focus {
-      outline: none;
-      border-bottom: 3px solid #9171ff;
+      border-bottom: 3px solid $main-color;
     }
   }
 
@@ -22,13 +23,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #2b292dcc;
+    color: $main-font-color;
   }
 
   &__desc {
-    height: 120px;
     resize: none;
-    overflow-y: hidden;
   }
 
   &__buttons {
@@ -41,53 +40,20 @@
   }
 
   &__change-btn {
-    margin: 8px;
     width: 120px;
     border: none;
+    background-color: $main-color;
     color: #fff;
-    background-color: #9171ff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: transform 0.2s;
-    box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
-      0px 1px 0px 0px #ffffff1a inset;
-    font-weight: 700;
-
-    &_disabled {
-      background-color: #fff;
-      color: #2b292dcc;
-      cursor: not-allowed;
-    }
 
     &_working {
-      cursor: pointer;
       animation: move 0.3s;
-      &:hover {
-        transform: scale(1.1);
-      }
     }
   }
 
   &__remove-btn {
     width: 120px;
-    margin: 8px;
-    margin-left: 2px;
     border: none;
     color: #fff;
     background-color: #ff7171;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: transform 0.2s;
-    box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
-      0px 1px 0px 0px #ffffff1a inset;
-    font-weight: 700;
-    cursor: pointer;
-    animation: move 0.3s;
-
-    &:hover {
-      transform: scale(1.1);
-    }
   }
 }

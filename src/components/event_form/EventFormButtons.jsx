@@ -33,12 +33,7 @@ const EventFormButtons = ({ eventData, onUpdateEvents, showAlert, events }) => {
   return (
     <div className={eventFormButtonsClass}>
       {!IsUpdateMode && (
-        <CreateButton
-          isWorking={isWorking}
-          eventData={eventData}
-          updateEvents={onUpdateEvents}
-          showHint={showAlert}
-        />
+        <CreateButton isWorking={isWorking} eventData={eventData} updateEvents={onUpdateEvents} />
       )}
       {IsUpdateMode && (
         <>

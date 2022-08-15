@@ -4,7 +4,7 @@ import EventForm from '../event_form/EventForm';
 
 import './modal.scss';
 
-const Modal = ({ eventData, hideModal, onUploadEvent, events, showAlert }) => (
+const Modal = ({ hideModal, onUploadEvent, eventData, events, showAlert }) => (
   <div className="modal overlay">
     <div className="modal__content">
       <div className="create-event">

@@ -1,8 +1,10 @@
+@import '../../styles/variables.scss';
+
 .calendar {
   &__day {
     position: relative;
     flex: 1;
-    border-left: 1px solid #cccccc66;
+    border-left: 1px solid $grey-color;
   }
 }
 
