@@ -15,6 +15,14 @@
   color: #2b292dcc;
   box-shadow: -1px 3px 6px 0px #0000000d, 0px 1px 16px 0px #0000001a,
     0px 1px 0px 0px #ffffff1a inset;
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    transform: scale(1);
+    cursor: not-allowed;
+  }
 
   &__icon {
     color: #9171ff;
@@ -32,6 +40,10 @@
     background-color: #fff;
     color: #2b292dcc;
     font-weight: 700;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__existed-events {

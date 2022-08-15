@@ -8,15 +8,15 @@ import Modal from './components/modal/Modal';
 import Alert from './components/alert/alert';
 
 const App = () => {
+  const [isDataGotten, setIsDataGotten] = useState(false);
+  const [events, setEvents] = useState(null);
+  const [eventData, setEventData] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isAlertExist, setIsAlertExist] = useState(false);
   const [alertText, setAlertText] = useState('');
-  const [events, setEvents] = useState(null);
-  const [eventData, setEventData] = useState(null);
 
   const toggleModalVisibility = booleanValue => {
     setIsModalVisible(booleanValue);
-    setIsAlertExist(false);
   };
 
   const handleShowAlert = (booleanValue, errorText) => {
@@ -27,6 +27,7 @@ const App = () => {
   const handleEventsFetch = () => {
     fetchEvents()
       .then(eventsData => {
+        setIsDataGotten(true);
         setEvents(eventsData);
       })
       .catch(() => {
@@ -62,6 +63,7 @@ const App = () => {
         updateEvents={handleEventsFetch}
         setEventData={handleSetEventData}
         events={events}
+        isDataGotten={isDataGotten}
       />
       {isModalVisible && (
         <Modal

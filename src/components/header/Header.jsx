@@ -12,6 +12,7 @@ const Header = ({
   onSetEventData,
   weekDates,
   events,
+  isDataGotten,
 }) => {
   const eventsCounter = events !== null ? events.length : 0;
 
@@ -23,6 +24,7 @@ const Header = ({
           openModal();
           onSetEventData({ time: new Date() });
         }}
+        disabled={!isDataGotten}
       >
         <i className="fas fa-plus create-event-btn__icon"></i>
         Create event

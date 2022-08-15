@@ -14,6 +14,10 @@ export const checkCreateEventOverlap = (eventStart, dateFrom, eventEnd, dateTo) 
   (eventStart >= dateFrom && eventEnd <= dateTo);
 
 export const getOverlapResult = (events, date, start, end, taskId) => {
+  if (!events) {
+    return null;
+  }
+
   const eventStart = getDateTime(date, start);
   const eventEnd = getDateTime(date, end);
 
