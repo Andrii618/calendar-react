@@ -44,6 +44,6 @@ npm run build
 
 Calendar requires [NodeJS](https://nodejs.org/) v10+ to build
 
-Application available via **[link](https://master--rococo-smakager-b948fc.netlify.app/)** 👈🏻
+### Application available via [link](https://master--rococo-smakager-b948fc.netlify.app/) 👈🏻 ###
 
-Developed by **[Andrii Shevchuk](https://github.com/Andrii618/)** 
+### Developed by [Andrii Shevchuk](https://github.com/Andrii618/) ###
