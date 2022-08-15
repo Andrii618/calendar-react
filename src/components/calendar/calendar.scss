@@ -3,6 +3,10 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 100px);
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
 
   &__body {
     display: flex;
