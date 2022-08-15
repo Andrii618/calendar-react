@@ -2,7 +2,7 @@
 
   <img src="./images/layout_images/calendar-overlay.jpg" width="1000">
 
-### _React-powered application to manage time and plan events_
+### _React-powered application for time-management and planning events_
 
 ## ✨Features
 
