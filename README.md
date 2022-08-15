@@ -1,6 +1,6 @@
 # 📅Calendar project
 
-  <img src="./images/layout_images/calendar-overlay.jpg" width="1000">
+  <img src="./images/layout_images/calendar-overlay.jpeg" width="1000">
 
 ### _React-powered application for time-management and planning events_
 
