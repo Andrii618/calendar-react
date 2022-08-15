@@ -1,8 +1,8 @@
 # 📅Calendar project
 
-  <img src="./images/layout_images/calendar-overlay.jpeg" width="1000">
+  <img src="./images/layout_images/calendar-overlay.jpg" width="1000">
 
-### _React-powered application to manage time and plan events_
+### _React-powered application for time-management and planning events_
 
 ## ✨Features
 
@@ -29,8 +29,23 @@
 
 ## Installation
 
-Calendar requires [Node.js](https://nodejs.org/) v10+ to build
+Move to the fold, install all dependencies and start the server:
 
-Application available via **[link](https://master--rococo-smakager-b948fc.netlify.app/)** 👈🏻
+```sh
+cd calendar-react
+npm i
+npm start
+```
+#### In order to build production version:
 
-Developed by **[Andrii Shevchuk](https://github.com/Andrii618/)** 
+```sh
+npm run build
+```
+
+Calendar requires [NodeJS](https://nodejs.org/) v10+ to build
+
+<hr/>
+
+### Application available via [link](https://master--rococo-smakager-b948fc.netlify.app/) 👈🏻 ###
+
+### Developed by [Andrii Shevchuk](https://github.com/Andrii618/) ###
