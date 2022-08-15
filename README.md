@@ -36,13 +36,13 @@ cd calendar-react
 npm i
 npm start
 ```
-#### Build for production version:
+#### In order to build production version:
 
 ```sh
 npm run build
 ```
 
-Calendar requires [Node.js](https://nodejs.org/) v10+ to build
+Calendar requires [NodeJS](https://nodejs.org/) v10+ to build
 
 Application available via **[link](https://master--rococo-smakager-b948fc.netlify.app/)** 👈🏻
 
