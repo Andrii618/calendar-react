@@ -29,7 +29,7 @@
 
 ## Installation
 
-Move to the fold, install all dependencies and start the server:
+Move to the fold, install all dependencies and run the server:
 
 ```sh
 cd calendar-react
