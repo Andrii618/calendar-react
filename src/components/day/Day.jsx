@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CurrentTimeLine from './CurrentTimeLine';
 import Hour from '../hour/Hour';
@@ -37,6 +38,21 @@ const Day = ({
       })}
     </div>
   );
+};
+
+Day.propTypes = {
+  setNewDay: PropTypes.func.isRequired,
+  setEventData: PropTypes.func.isRequired,
+  dataDay: PropTypes.number.isRequired,
+  dayEvents: PropTypes.array,
+  isCurrentDay: PropTypes.bool.isRequired,
+  eventDate: PropTypes.object.isRequired,
+  isDataGotten: PropTypes.bool,
+};
+
+Day.defaultProps = {
+  dayEvents: null,
+  isDataGotten: false,
 };
 
 export default Day;

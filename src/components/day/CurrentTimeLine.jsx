@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { getMinsPassed } from '../../utils/dateUtils';
 
@@ -25,6 +26,10 @@ const CurrentTimeLine = ({ setNewDay }) => {
       <i className="fas fa-circle red-line__circle"></i>
     </div>
   );
+};
+
+CurrentTimeLine.propTypes = {
+  setNewDay: PropTypes.func.isRequired,
 };
 
 export default CurrentTimeLine;

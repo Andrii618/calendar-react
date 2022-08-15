@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { removeEvent } from '../../gateway/events';
 
@@ -14,6 +15,11 @@ const RemoveButton = ({ id, updateEvents }) => {
       Remove
     </button>
   );
+};
+
+RemoveButton.propTypes = {
+  id: PropTypes.string.isRequired,
+  updateEvents: PropTypes.func.isRequired,
 };
 
 export default RemoveButton;

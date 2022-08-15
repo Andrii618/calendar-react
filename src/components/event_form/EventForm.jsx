@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { formatTime } from '../../utils/dateUtils';
 
@@ -57,11 +58,29 @@ const EventForm = ({ eventDataObj, onUpdateEvents, events, showAlert }) => {
       <EventFormButtons
         eventData={eventData}
         onUpdateEvents={onUpdateEvents}
-        showAlert={showAlert}
         events={events}
+        showAlert={showAlert}
       />
     </form>
   );
+};
+
+EventForm.propTypes = {
+  eventDataObj: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    startTime: PropTypes.string.isRequired,
+    endTime: PropTypes.string.isRequired,
+  }).isRequired,
+  onUpdateEvents: PropTypes.func.isRequired,
+  events: PropTypes.array,
+  showAlert: PropTypes.func.isRequired,
+};
+
+EventForm.defaultProps = {
+  events: null,
 };
 
 export default EventForm;

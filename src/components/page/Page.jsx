@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { getWeekStartDate, generateWeekRange } from '../../utils/dateUtils';
 import Header from '../header/Header';
@@ -42,6 +43,18 @@ const Page = ({ openModal, setEventData, events, isDataGotten }) => {
       />
     </div>
   );
+};
+
+Page.propTypes = {
+  openModal: PropTypes.func.isRequired,
+  setEventData: PropTypes.func.isRequired,
+  events: PropTypes.array,
+  isDataGotten: PropTypes.bool,
+};
+
+Page.defaultProps = {
+  events: null,
+  isDataGotten: false,
 };
 
 export default Page;

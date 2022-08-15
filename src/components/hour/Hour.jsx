@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { formatTimeValue } from '../../utils/dateUtils.js';
 import { createDateProp } from '../../utils/createEventData.js';
@@ -53,6 +54,19 @@ const Hour = ({ setEventData, dataHour, hourEvents, eventDate, isDataGotten }) =
         })}
     </div>
   );
+};
+
+Hour.propTypes = {
+  setEventData: PropTypes.func.isRequired,
+  dataHour: PropTypes.number.isRequired,
+  hourEvents: PropTypes.array,
+  eventDate: PropTypes.object.isRequired,
+  isDataGotten: PropTypes.bool,
+};
+
+Hour.defaultProps = {
+  hourEvents: null,
+  isDataGotten: false,
 };
 
 export default Hour;

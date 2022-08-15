@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Navigation from '../navigation/Navigation';
 import Sidebar from '../sidebar/Sidebar';
@@ -23,5 +24,18 @@ const Calendar = ({ setNewDay, setEventData, events, weekDates, isDataGotten }) 
     </div>
   </section>
 );
+
+Calendar.propTypes = {
+  setNewDay: PropTypes.func.isRequired,
+  setEventData: PropTypes.func.isRequired,
+  events: PropTypes.array,
+  weekDates: PropTypes.array.isRequired,
+  isDataGotten: PropTypes.bool,
+};
+
+Calendar.defaultProps = {
+  events: null,
+  isDataGotten: false,
+};
 
 export default Calendar;

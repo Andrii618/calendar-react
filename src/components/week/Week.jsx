@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { isCurrentDay } from '../../utils/dateUtils';
 import getDailyEvents from './getDailyEvents';
@@ -29,5 +30,18 @@ const Week = ({ setNewDay, setEventData, events, weekDates, isDataGotten }) => (
     })}
   </div>
 );
+
+Week.propTypes = {
+  setNewDay: PropTypes.func.isRequired,
+  setEventData: PropTypes.func.isRequired,
+  events: PropTypes.array,
+  weekDates: PropTypes.array.isRequired,
+  isDataGotten: PropTypes.bool,
+};
+
+Week.defaultProps = {
+  events: null,
+  isDataGotten: false,
+};
 
 export default Week;

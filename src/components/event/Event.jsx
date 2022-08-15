@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './event.scss';
 
@@ -34,6 +35,19 @@ const Event = ({
       {height >= 60 && <div className="event__time">{time}</div>}
     </div>
   );
+};
+
+Event.propTypes = {
+  onSetEventData: PropTypes.func.isRequired,
+  height: PropTypes.number.isRequired,
+  marginTop: PropTypes.number.isRequired,
+  time: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  startTime: PropTypes.string.isRequired,
+  endTime: PropTypes.string.isRequired,
 };
 
 export default Event;

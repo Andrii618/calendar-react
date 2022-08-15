@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { getMonth } from '../../utils/dateUtils';
 
@@ -48,6 +49,22 @@ const Header = ({
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  goCurrentWeek: PropTypes.func.isRequired,
+  goNextWeek: PropTypes.func.isRequired,
+  goPrevWeek: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
+  onSetEventData: PropTypes.func.isRequired,
+  weekDates: PropTypes.array.isRequired,
+  events: PropTypes.array,
+  isWorking: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  events: null,
+  isWorking: false,
 };
 
 export default Header;
