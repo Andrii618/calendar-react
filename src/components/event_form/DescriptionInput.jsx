@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DescriptionInput = ({ value, onTypeText }) => (
   <textarea
@@ -11,5 +12,14 @@ const DescriptionInput = ({ value, onTypeText }) => (
     style={{ height: value.length * 0.6 + 30 }}
   ></textarea>
 );
+
+DescriptionInput.propTypes = {
+  value: PropTypes.string,
+  onTypeText: PropTypes.func.isRequired,
+};
+
+DescriptionInput.defaultValue = {
+  value: '',
+};
 
 export default DescriptionInput;

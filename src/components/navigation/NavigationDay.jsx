@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { days, isCurrentDay } from '../../utils/dateUtils';
@@ -18,6 +19,10 @@ const NavigationDay = ({ dayDate }) => {
       <span className={dayNumberStyles}>{dayDate.getDate()}</span>
     </div>
   );
+};
+
+NavigationDay.propTypes = {
+  dayDate: PropTypes.object.isRequired,
 };
 
 export default NavigationDay;
