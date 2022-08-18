@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { formatTime } from '../../utils/dateUtils';
 
 import DescriptionInput from './DescriptionInput';
-import EventFormButtons from './EventFormButtons';
+import FormButtons from './FormButtons';
 
 import './event-form.scss';
 
@@ -55,7 +55,7 @@ const EventForm = ({ eventDataObj, onUpdateEvents, events, showAlert }) => {
         />
       </div>
       <DescriptionInput value={eventData.description} onTypeText={handleDataChange} />
-      <EventFormButtons
+      <FormButtons
         eventData={eventData}
         onUpdateEvents={onUpdateEvents}
         events={events}
@@ -68,7 +68,7 @@ const EventForm = ({ eventDataObj, onUpdateEvents, events, showAlert }) => {
 EventForm.propTypes = {
   eventDataObj: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     description: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     startTime: PropTypes.string.isRequired,

@@ -8,7 +8,7 @@ import CreateButton from './CreateButton';
 import RemoveButton from './RemoveButton';
 import UpdateButton from './UpdateButton';
 
-const EventFormButtons = ({ eventData, onUpdateEvents, events, showAlert }) => {
+const FormButtons = ({ eventData, onUpdateEvents, events, showAlert }) => {
   const [isWorking, setIsWorking] = useState(false);
 
   const { date, startTime, endTime, id, title } = eventData;
@@ -51,10 +51,10 @@ const EventFormButtons = ({ eventData, onUpdateEvents, events, showAlert }) => {
   );
 };
 
-EventFormButtons.propTypes = {
+FormButtons.propTypes = {
   eventData: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     description: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     startTime: PropTypes.string.isRequired,
@@ -65,8 +65,8 @@ EventFormButtons.propTypes = {
   showAlert: PropTypes.func.isRequired,
 };
 
-EventFormButtons.defaultProps = {
+FormButtons.defaultProps = {
   events: null,
 };
 
-export default EventFormButtons;
+export default FormButtons;

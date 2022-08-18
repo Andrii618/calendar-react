@@ -34,7 +34,7 @@ CreateButton.propTypes = {
   isWorking: PropTypes.bool,
   eventData: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     description: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     startTime: PropTypes.string.isRequired,

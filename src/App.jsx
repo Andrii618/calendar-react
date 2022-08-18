@@ -17,6 +17,10 @@ const App = () => {
 
   const toggleModalVisibility = booleanValue => {
     setIsModalVisible(booleanValue);
+
+    if (booleanValue === false) {
+      setIsAlertExist(false);
+    }
   };
 
   const handleShowAlert = (booleanValue, errorText) => {
