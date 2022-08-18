@@ -24,6 +24,8 @@ const Hour = ({ setEventData, dataHour, hourEvents, eventDate, isDataGotten }) =
     });
   };
 
+  const minuteInMilliseconds = 60000;
+
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1} onClick={handleSetEventHours}>
       {hourEvents &&
@@ -40,7 +42,7 @@ const Hour = ({ setEventData, dataHour, hourEvents, eventDate, isDataGotten }) =
             <Event
               key={id}
               onSetEventData={setEventData}
-              height={(dateTo.getTime() - dateFrom.getTime()) / 60000}
+              height={(dateTo.getTime() - dateFrom.getTime()) / minuteInMilliseconds}
               marginTop={dateFrom.getMinutes()}
               time={`${eventStart} - ${eventEnd}`}
               id={id}

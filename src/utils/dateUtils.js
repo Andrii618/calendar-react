@@ -42,9 +42,9 @@ export const getMinsPassed = () => {
   return base.getHours() * 60 + base.getMinutes();
 };
 
-export const isCurrentDay = day => moment(new Date()).format('l') === moment(day).format('l');
+export const isCurrentDay = day => moment().format('l') === moment(day).format('l');
 
-export const formatTimeValue = mins => String(mins).padStart(2, '0');
+export const formatTimeValue = timeValue => String(timeValue).padStart(2, '0');
 
 export const formatTime = time => {
   const [hours, minutes] = time.split(':');
