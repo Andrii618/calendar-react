@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { getOverlapResult } from '../../utils/timeValidation';
+import { getOverlapResult, isPastEvent } from '../../utils/timeValidation';
 
 import CreateButton from './CreateButton';
 import RemoveButton from './RemoveButton';
@@ -19,6 +19,12 @@ const FormButtons = ({ eventData, onUpdateEvents, events, showAlert }) => {
     showAlert(isInvalid, 'Your event overlaps already existed or time format is incorrect');
 
     if (title === '') {
+      isInvalid = true;
+    }
+
+    if (isPastEvent(date, startTime)) {
+      showAlert(true, "You can't create event in the past");
+
       isInvalid = true;
     }
 

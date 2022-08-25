@@ -32,3 +32,15 @@ export const getOverlapResult = (events, date, start, end, taskId) => {
     return checkCreateEventOverlap(eventStart, dateFrom, eventEnd, dateTo);
   });
 };
+
+export const isPastEvent = (date, startTime) => {
+  const currentDate = new Date();
+
+  const [hours, minutes] = startTime.split(':');
+
+  return (
+    new Date(date) <= currentDate ||
+    currentDate.getHours() > hours ||
+    currentDate.getMinutes() > minutes
+  );
+};
