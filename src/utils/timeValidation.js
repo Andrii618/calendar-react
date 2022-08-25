@@ -1,3 +1,4 @@
+import moment from 'moment';
 import getDailyEvents from '../components/week/getDailyEvents';
 import { getDateTime } from './dateUtils';
 
@@ -34,13 +35,7 @@ export const getOverlapResult = (events, date, start, end, taskId) => {
 };
 
 export const isPastEvent = (date, startTime) => {
-  const currentDate = new Date();
-
   const [hours, minutes] = startTime.split(':');
 
-  return (
-    new Date(date) <= currentDate ||
-    currentDate.getHours() > hours ||
-    currentDate.getMinutes() > minutes
-  );
+  return moment(date).add(hours, 'hours').add(minutes, 'minutes') < new Date();
 };
