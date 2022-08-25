@@ -1,20 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { formatTimeValue } from '../../utils/dateUtils.js';
+import { createDateProp } from '../../utils/createEventData.js';
+
 import './event.scss';
 
-const Event = ({
-  onSetEventData,
-  height,
-  marginTop,
-  time,
-  id,
-  title,
-  description,
-  date,
-  startTime,
-  endTime,
-}) => {
+const MINUTE_IN_MILLISECONDS = 60000;
+
+const Event = ({ onSetEventData, eventData }) => {
+  const { dateFrom, dateTo, id, title, description } = eventData;
+
+  const height = (dateTo.getTime() - dateFrom.getTime()) / MINUTE_IN_MILLISECONDS;
+  const marginTop = dateFrom.getMinutes();
   const lineBreak = height >= 120 ? 'anywhere' : 'initial';
 
   const eventStyle = {
@@ -23,16 +21,29 @@ const Event = ({
     lineBreak,
   };
 
+  const eventStart = `${formatTimeValue(dateFrom.getHours())}:${formatTimeValue(
+    dateFrom.getMinutes(),
+  )}`;
+
+  const eventEnd = `${formatTimeValue(dateTo.getHours())}:${formatTimeValue(dateTo.getMinutes())}`;
+
   const handleUpdateEvent = e => {
     e.stopPropagation();
 
-    onSetEventData({ description, title, id, date, startTime, endTime });
+    onSetEventData({
+      description,
+      title,
+      id,
+      startTime: eventStart,
+      endTime: eventEnd,
+      date: createDateProp(dateFrom),
+    });
   };
 
   return (
-    <div style={eventStyle} id={id} className="event" onClick={handleUpdateEvent}>
+    <div style={eventStyle} className="event" onClick={handleUpdateEvent}>
       {height >= 30 && <div className="event__title">{title}</div>}
-      {height >= 60 && <div className="event__time">{time}</div>}
+      {height >= 60 && <div className="event__time">{`${eventStart} - ${eventEnd}`}</div>}
     </div>
   );
 };

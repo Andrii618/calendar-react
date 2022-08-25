@@ -15,17 +15,17 @@ const App = () => {
   const [isAlertExist, setIsAlertExist] = useState(false);
   const [alertText, setAlertText] = useState('');
 
-  const toggleModalVisibility = booleanValue => {
-    setIsModalVisible(booleanValue);
+  const toggleModalVisibility = isVisible => {
+    setIsModalVisible(isVisible);
 
-    if (booleanValue === false) {
+    if (isVisible === false) {
       setIsAlertExist(false);
     }
   };
 
-  const handleShowAlert = (booleanValue, errorText) => {
+  const handleShowAlert = (isExists, errorText) => {
     setAlertText(errorText);
-    setIsAlertExist(booleanValue);
+    setIsAlertExist(isExists);
   };
 
   const handleEventsFetch = () => {
