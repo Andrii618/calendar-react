@@ -50,15 +50,7 @@ const Event = ({ onSetEventData, eventData }) => {
 
 Event.propTypes = {
   onSetEventData: PropTypes.func.isRequired,
-  height: PropTypes.number.isRequired,
-  marginTop: PropTypes.number.isRequired,
-  time: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  startTime: PropTypes.string.isRequired,
-  endTime: PropTypes.string.isRequired,
+  eventData: PropTypes.object.isRequired,
 };
 
 export default Event;
